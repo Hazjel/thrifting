@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.navbar {
+    display: flex;
+    width: 1240px;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.navbar-title {
+    color: #000;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: "Abril Fatface";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.search-form {
+    display: flex;
+    width: 705px;
+    padding: 12px 16px;
+    align-items: flex-start;
+    gap: 12px;
+    flex-shrink: 0;
+}
