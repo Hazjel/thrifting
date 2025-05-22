@@ -1,11 +1,11 @@
 * {
     margin: 0;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    background: #FFF;
 }
 
 .navbar {
     display: flex;
-    width: 1240px;
+
     justify-content: center;
     align-items: center;
     gap: 40px;
@@ -13,8 +13,6 @@
 
 .navbar-title {
     color: #000;
-    leading-trim: both;
-    text-edge: cap;
     font-family: "Abril Fatface";
     font-size: 32px;
     font-style: normal;
@@ -29,4 +27,56 @@
     align-items: flex-start;
     gap: 12px;
     flex-shrink: 0;
+    border-radius: 62px;
+    background: #F0F0F0;
+}
+
+.search-form svg {
+    background: transparent;
+}
+
+.search-form input {
+    margin-top: 2px;
+    width: 100%;
+    appearance: none;
+    outline: none;
+    border: none;
+    background: transparent;
+    color: rgba(0, 0, 0, 0.40);
+    font-family: Adamina;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav a {
+    color: #000;
+    font-family: Adamina;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    color: #b90000;
+    text-decoration: underline;
+}
+
+.icon {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.flag-icon {
+    margin-top: 2px;
 }
