@@ -1,18 +1,19 @@
-.footer {
-    width: 1441px;
-    height: 499px;
+* {
+    margin: 0;
+}
+
+footer {
+    width: auto;
+    height: 500px;
+    padding-inline: 102px;
     flex-shrink: 0;
     background: #F0F0F0;
-}
-
-.container {
     display: flex;
-    width: 1240px;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
 }
 
-.footer-content-1 {
+.about-sekenly {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -24,15 +25,24 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 25px;
-}
 
-.text-box-title {
-    color: #000;
-    font-family: "Abril Fatface";
-    font-size: 33.455px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    & h1 {
+        color: #000;
+        font-family: "Abril Fatface";
+        font-size: 33px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    & {
+        color: rgba(0, 0, 0, 0.60);
+        font-family: Adamina;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+    }
 }
 
 .text-box-desc {
@@ -68,4 +78,136 @@
 .github-logo {
     width: 28px;
     height: 28px;
+}
+
+.company-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 26px;
+
+    & h2 {
+        color: #000;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
+
+    & .company-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        & p {
+            color: black;
+            font-family: Adamina;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 19px;
+        }
+    }
+}
+
+.help-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 26px;
+
+    & h2 {
+        color: #000;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
+
+    & .help-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        & p {
+            color: black;
+            font-family: Adamina;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 19px;
+        }
+    }
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 26px;
+
+    & h2 {
+        color: #000;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
+
+    & .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        & p {
+            color: black;
+            font-family: Adamina;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 19px;
+        }
+    }
+}
+
+.res-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 26px;
+
+    & h2 {
+        color: #000;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
+
+    & .res-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        & p {
+            color: black;
+            font-family: Adamina;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 19px;
+        }
+    }
 }
