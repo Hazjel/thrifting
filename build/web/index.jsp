@@ -7,9 +7,9 @@
 
         <jsp:include page="/components/navbar.jsp"/>
         <jsp:include page="/components/footer.jsp"/>
+        
         <link rel="stylesheet" href="styles/navbar.css">
         <link rel="stylesheet" href="styles/footer.css">
-        
     </head>
     <body>
         
