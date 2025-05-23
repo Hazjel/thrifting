@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="styles/footer.css">
+
 <div class="footer">
     <div class="box">
         <div class="text-box">
