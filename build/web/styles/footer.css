@@ -45,39 +45,30 @@ footer {
     }
 }
 
-.text-box-desc {
-    color: rgba(0, 0, 0, 0.60);
-    font-family: Adamina;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 22px;
-}
-
 .logo {
     display: flex;
     align-items: flex-start;
     gap: 14px;
-}
 
-.twitter-logo {
-    width: 28px;
-    height: 28px;
-}
+    & .twitter-logo {
+        width: 28px;
+        height: 28px;
+    }
 
-.facebook-logo {
-    width: 28px;
-    height: 28px;
-}
+    & .facebook-logo {
+        width: 28px;
+        height: 28px;
+    }
 
-.instagram-logo {
-    width: 28px;
-    height: 28px;
-}
+    & .instagram-logo {
+        width: 28px;
+        height: 28px;
+    }
 
-.github-logo {
-    width: 28px;
-    height: 28px;
+    & .github-logo {
+        width: 28px;
+        height: 28px;
+    }
 }
 
 .company-container {

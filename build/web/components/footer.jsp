@@ -5,7 +5,6 @@
             <p>We have clothes that suits your style <br> and which you're proud to wear. <br> From women to men.</p>
         </div>
 
-        <%-- Logo --%>
         <div class="logo">
             <div class="twitter-logo">
                 <a href="#">
