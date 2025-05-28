@@ -9,6 +9,10 @@
     gap: 40px;
 }
 
+hr {
+    border: 1px solid rgba(0, 0, 0, 0.20);
+}
+
 .navbar-title {
     color: #000;
     font-family: "Abril Fatface";

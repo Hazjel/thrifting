@@ -6,12 +6,20 @@
         <title>Sekenly | Home</title>
 
         <jsp:include page="/components/navbar.jsp"/>
-        <jsp:include page="/components/footer.jsp"/>
         
         <link rel="stylesheet" href="styles/navbar.css">
         <link rel="stylesheet" href="styles/footer.css">
     </head>
     <body>
+        <div class="category">
+            <a href="#">Wanita</a>
+            <a href="#">Pria</a>
+            <a href="#">Branded</a>
+            <a href="#">Anak</a>
+        </div>
+
         
+
+        <jsp:include page="/components/footer.jsp"/>
     </body>
 </html>
