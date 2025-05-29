@@ -9,9 +9,6 @@
 
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/footer.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
@@ -31,8 +28,10 @@
 
             <a class="btn" href="#">Explore</a>
         </div>
-        
-        <img src="assets/clothes.png" alt="">
+        <div class="image-wrapper">
+            <img src="assets/clothes.png" alt="">
+            <div class="image-gradient"></div>
+        </div>
     </div>
 
     <div class="hot-item">
