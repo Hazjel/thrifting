@@ -45,40 +45,40 @@
     <div class="company-container">
         <h2 class="company-title">Company</h2>
         <div class="company-list">
-            <p class="company-item">About</p>
-            <p class="company-item">Features</p>
-            <p class="company-item">Works</p>
-            <p class="company-item">Career</p>
+            <a href="#" class="company-item">About</a>
+            <a href="#" class="company-item">Features</a>
+            <a href="#" class="company-item">Works</a>
+            <a href="#" class="company-item">Career</a>
         </div>
     </div>
 
     <div class="help-container">
         <h2 class="help-title">Help</h2>
         <div class="help-list">
-            <p class="help-item">Customer Support</p>
-            <p class="help-item">Delivery Details</p>
-            <p class="help-item">Terms & Conditions</p>
-            <p class="help-item">Privacy Policy</p>
+            <a href="#" class="help-item">Customer Support</a>
+            <a href="#" class="help-item">Delivery Details</a>
+            <a href="#" class="help-item">Terms & Conditions</a>
+            <a href="#" class="help-item">Privacy Policy</a>
         </div>
     </div>
 
     <div class="faq-container">
         <h2 class="faq-title">Faq</h2>
         <div class="faq-list">
-            <p class="faq-item">Account</p>
-            <p class="faq-item">Manage Deliveries</p>
-            <p class="faq-item">Orders</p>
-            <p class="faq-item">Payments</p>
+            <a href="#" class="faq-item">Account</a>
+            <a href="#" class="faq-item">Manage Deliveries</a>
+            <a href="#" class="faq-item">Orders</a>
+            <a href="#" class="faq-item">Payments</a>
         </div>
     </div>
 
     <div class="res-container">
         <h2 class="res-title">Resources</h2>
         <div class="res-list">
-            <p class="res-item">Free eBooks</p>
-            <p class="res-item">Development Tutorial</p>
-            <p class="res-item">How to - Blog</p>
-            <p class="res-item">Youtube Playlist</p>
+            <a href="#" class="res-item">Free eBooks</a>
+            <a href="#" class="res-item">Development Tutorial</a>
+            <a href="#" class="res-item">How to - Blog</a>
+            <a href="#" class="res-item">Youtube Playlist</a>
         </div>
     </div>
 </footer>
