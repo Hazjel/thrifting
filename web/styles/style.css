@@ -318,11 +318,12 @@
 
                 & .desc {
                     display: flex;
+                    flex-direction: row;
                     width: 281px;
                     justify-content: space-between;
                     align-items: flex-start;
 
-                    & item-info {
+                    & .item-info {
                         display: flex;
                         width: 219px;
                         flex-direction: column;
