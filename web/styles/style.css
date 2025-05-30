@@ -114,6 +114,8 @@
 }
 
 .hot-item {
+    margin-top: 5%;
+    margin-bottom: 5%;
     display: flex;
     height: 669px;
     flex-direction: column;
@@ -122,7 +124,7 @@
     gap: 58px;
     flex-shrink: 0;
 
-    & .hot-item-title {
+    & h1 {
         color: #000;
         text-align: center;
         font-family: "Abril Fatface";
@@ -133,69 +135,212 @@
     }
 
     & .hot-item-content {
-        display: flex;
-        height: 403px;
-        width: 100%;
+        display: inline-flex;
+        padding-right: 10px;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 20px;
-        aspect-ratio: 40/13;
-        flex-wrap: wrap;
+        gap: 40px;
 
-        & .item {
-            width: 295px;
+        & .container-content {
+            display: flex;
             height: 403px;
-            flex-shrink: 0;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            aspect-ratio: 40/13;
 
-            & img {
+            & .item {
+                width: 295px;
+                height: 403px;
+                flex-shrink: 0;
+
+                & img {
+                    display: flex;
+                    width: 295px;
+                    height: 298px;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    flex-shrink: 0;
+                    border-radius: 20px;
+                    background: #F0EEED;
+                }
+
+                & .desc {
+                    display: flex;
+                    width: 281px;
+                    justify-content: space-between;
+                    align-items: flex-start;        
+
+                    & .bookmark {
+                        display: flex;
+                        width: 37px;
+                        padding: 5px 3px;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 10px;
+                        flex-shrink: 0;
+                    }
+
+                    & .item-info {
+                        display: flex;
+                        width: 219px;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 6px;
+                        flex-shrink: 0;
+
+                        & h3 {
+                            display: flex;
+                            width: 219px;
+                            height: 30px;
+                            flex-direction: column;
+                            justify-content: center;
+                            flex-shrink: 0;
+                            color: #000;
+                            font-family: Inter;
+                            font-size: 24px;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: normal;
+                        }
+
+                        & p {
+                            color: #000;
+                            font-family: Inter;
+                            font-size: 20px;
+                            font-style: normal;
+                            font-weight: 300;
+                            line-height: normal;
+                        }
+                    }
+                }
+            }
+        }
+
+        & .btn {
+            display: flex;
+            width: 10%;
+            padding: 16px 54px;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            border: 1px solid rgba(0, 0, 0, 0.10);
+            border-radius: 62px;
+            background: #FFF;
+            color: #000;
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+
+            &:hover {
+                background: #000000;
+
+                & a {
+                    color: #FFF;
+                }
+            }
+
+            & a {
+                text-decoration: none;
+                color: #000;
+                font-family: Inter;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+        }
+    }
+
+    & hr {
+        width: 1240px;
+        height: 1px;
+        background: rgba(0, 0, 0, 0.10);
+    }
+}
+
+.new-arrival {
+    display: flex;
+    height: 632px;
+    flex-direction: column;
+    align-items: center;
+    gap: 51px;
+    flex-shrink: 0;
+
+    & h1 {
+        color: #000;
+        text-align: center;
+        font-family: "Abril Fatface";
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    & .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+        align-self: stretch;
+
+        & .new-arrival-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+
+            & .item {
                 display: flex;
                 width: 295px;
-                height: 298px;
+                height: 403px;
                 flex-direction: column;
-                justify-content: center;
                 align-items: center;
-                flex-shrink: 0;
-                border-radius: 20px;
-                background: #F0EEED;
-            }
+                gap: 20px;
 
-            & .desc {
-                display: flex;
-                align-items: flex-start;
-                gap: 28px;
-                flex-direction: row-reverse;
-            }
+                & img {
+                    display: flex;
+                    width: 295px;
+                    height: 298px;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    flex-shrink: 0;
+                    border-radius: 20px;
+                    background: #F0EEED;
+                }
 
-            & .bookmark {
-                width: 40px;
-                height: 40px;
-                aspect-ratio: 1/1;
-                fill: rgba(255, 255, 255, 0.00);
-            }
-            
+                & .desc {
+                    display: flex;
+                    width: 281px;
+                    justify-content: space-between;
+                    align-items: flex-start;
 
-            & h3 {
-                display: flex;
-                width: 219px;
-                height: 30px;
-                flex-direction: column;
-                justify-content: center;
-                flex-shrink: 0;
-                color: #000;
-                font-family: Inter;
-                font-size: 24px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: normal;
-            }
+                    & item-info {
+                        display: flex;
+                        width: 219px;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 6px;
+                        flex-shrink: 0;
+                    }
 
-            & p {
-                color: #000;
-                font-family: Inter;
-                font-size: 20px;
-                font-style: normal;
-                font-weight: 300;
-                line-height: normal;
+                    & .fav {
+                        display: flex;
+                        width: 37px;
+                        padding: 5px 3px;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 10px;
+                        flex-shrink: 0;
+                    }
+                }
             }
         }
     }
