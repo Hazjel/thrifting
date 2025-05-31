@@ -37,12 +37,11 @@
         </form>
 
         <p>Already have account? <a href="login.jsp"> Login Here!</a></p>
-        
+
+        <div class="back">
+            <a href="../index.jsp">Return to Homepage</a>
+        </div>
     </div>
-
-
-    <a href="">Return to Homepage</a>
-
 </body>
 
 </html>

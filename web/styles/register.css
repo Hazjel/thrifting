@@ -122,4 +122,26 @@
             }
         }
     }
+    
+    & .back {
+        display: flex;
+        width: 172px;
+        height: 20px;
+        padding: 12px 16px;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        border-radius: 62px;
+        background: #000;
+
+        & a {
+            color: #FFF;
+            font-family: Adamina;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-decoration: none;
+        }
+    }
 }
