@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    /* border: 1px solid red; */
+}
+
+body {
+    display: flex;
+    padding: 213px 0px 214px 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    display: flex;
+    width: 419px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    flex-shrink: 0;
+
+    & .title {
+        display: flex;
+        width: 130px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 8px;
+        width: 100%;
+
+        & h1 {
+            color: #000;
+            font-family: "Abril Fatface";
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+    }
+
+    & .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 32px;
+        align-self: stretch;
+
+        & form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 16px;
+            align-self: stretch;
+
+            & .username {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                width: 419px;
+                height: auto;
+                gap: 16px;
+                align-self: stretch;
+
+                & label {
+                    color: #000;
+                    font-family: Adamina;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+
+                & input {
+                    display: flex;
+                    padding: 12px 16px;
+                    align-items: flex-start;
+                    gap: 12px;
+                    align-self: stretch;
+                    border-radius: 62px;
+                    border: none;
+                    background: #F0F0F0;
+                }
+            }
+
+            & .password {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 16px;
+                align-self: stretch;
+
+                & label {
+                    color: #000;
+                    font-family: Adamina;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+
+                & input {
+                    display: flex;
+                    padding: 12px 16px;
+                    align-items: flex-start;
+                    gap: 12px;
+                    align-self: stretch;
+                    border-radius: 62px;
+                    border: none;
+                    background: #F0F0F0;
+                }
+            }
+        }
+
+
+
+        & button {
+            display: flex;
+            height: 46px;
+            padding: 12px 16px;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            align-self: stretch;
+            border-radius: 62px;
+            background: #000;
+
+            & p {
+                color: #FFF;
+                font-family: Adamina;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+        }
+
+        & p {
+            width: 100%;
+            text-align: center;
+
+            & a {
+                color: #000;
+                font-family: Adamina;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                    color: #b90000;
+                }
+            }
+        }
+    }
+
+    & .back {
+        display: flex;
+        width: 172px;
+        height: 20px;
+        padding: 12px 16px;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        border-radius: 62px;
+        background: #000;
+
+        & a {
+            color: #FFF;
+            font-family: Adamina;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-decoration: none;
+        }
+    }
+}
