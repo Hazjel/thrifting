@@ -18,13 +18,6 @@
 </head>
 
 <body>
-    <div class="category">
-        <a href="#">Wanita</a>
-        <a href="#">Pria</a>
-        <a href="#">Branded</a>
-        <a href="#">Anak</a>
-    </div>
-
     <div class="dashboard">
         <div class="container">
             <div class="text-dashboard">
@@ -149,7 +142,7 @@
         <hr>
     </div>
 
-    <div class="new-arrival">
+    <div class="new-arrival" id="new-arrival">
         <h1>New Arrival</h1>
         <div class="container">
             <div class="new-arrival-item">

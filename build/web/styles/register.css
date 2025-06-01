@@ -1,32 +1,24 @@
 * {
     margin: 0;
-    /* border: 1px solid red; */
 }
 
-body {
+.container {
+    height: 100vh;
     display: flex;
-    padding: 213px 0px 214px 0px;
-    justify-content: center;
-    align-items: center;
-}
-
-.login {
-    display: flex;
-    width: 419px;
+    width: 25%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 32px;
-    flex-shrink: 0;
+    margin: auto;
 
-    & .title {
+    & .register-text {
         display: flex;
-        width: 130px;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
         gap: 8px;
-        width: 100%;
+        align-self: stretch;
 
         & h1 {
             color: #000;
@@ -36,9 +28,18 @@ body {
             font-weight: 400;
             line-height: normal;
         }
+
+        & p {
+            color: #000;
+            font-family: "Adamina";
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
     }
 
-    & .container {
+    & form {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -46,7 +47,7 @@ body {
         gap: 32px;
         align-self: stretch;
 
-        & form {
+        & .input-container {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -54,38 +55,7 @@ body {
             gap: 16px;
             align-self: stretch;
 
-            & .username {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
-                width: 419px;
-                height: auto;
-                gap: 16px;
-                align-self: stretch;
-
-                & label {
-                    color: #000;
-                    font-family: Adamina;
-                    font-size: 16px;
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: normal;
-                }
-
-                & input {
-                    display: flex;
-                    padding: 12px 16px;
-                    align-items: flex-start;
-                    gap: 12px;
-                    align-self: stretch;
-                    border-radius: 62px;
-                    border: none;
-                    background: #F0F0F0;
-                }
-            }
-
-            & .password {
+            & .input {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -95,7 +65,7 @@ body {
 
                 & label {
                     color: #000;
-                    font-family: Adamina;
+                    font-family: "Adamina";
                     font-size: 16px;
                     font-style: normal;
                     font-weight: 400;
@@ -103,61 +73,56 @@ body {
                 }
 
                 & input {
-                    display: flex;
-                    padding: 12px 16px;
-                    align-items: flex-start;
-                    gap: 12px;
-                    align-self: stretch;
+                    width: 100%;
+                    height: 40px;
+                    padding: 8px;
+                    border-radius: 4px;
+                    font-family: "Adamina";
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
                     border-radius: 62px;
-                    border: none;
                     background: #F0F0F0;
+                    padding: 8px 16px;
+                    border: none;
                 }
             }
         }
-
-
 
         & button {
-            display: flex;
-            height: 46px;
+            color: #FFF;
+            font-family: "Adamina";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
             padding: 12px 16px;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            align-self: stretch;
+            width: 100%;
             border-radius: 62px;
             background: #000;
-
-            & p {
-                color: #FFF;
-                font-family: Adamina;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: normal;
-            }
-        }
-
-        & p {
-            width: 100%;
-            text-align: center;
-
-            & a {
-                color: #000;
-                font-family: Adamina;
-                font-style: normal;
-                font-weight: 400;
-                line-height: normal;
-                text-decoration: none;
-
-                &:hover {
-                    text-decoration: underline;
-                    color: #b90000;
-                }
-            }
+            cursor: pointer;
         }
     }
 
+    & p {
+        color: #000;
+        font-family: "Adamina";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        & a {
+            color: #000;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    
     & .back {
         display: flex;
         width: 172px;
