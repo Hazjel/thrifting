@@ -1,74 +1,103 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import models.Product;
 
-@WebServlet(name = "ProductControllers", urlPatterns = {"/ProductControllers"})
-public class ProductControllers extends HttpServlet {
+@WebServlet(name = "ProductController", urlPatterns = {"/product"})
+public class ProductController extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ProductControllers</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ProductControllers at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        // (#3.1) Inisialisasi object HttpSession untuk melakukan request session
+        HttpSession session = request.getSession();
+        // (#3.2) Lakukan pengecekan apakah var session untuk atribut "user" bernilai null
+        if (session.getAttribute("user") == null) {
+            // (#3.3) Lakukan send redirect secara langsung ke index.jsp
+            response.sendRedirect("index.jsp");
+            return;
+        }
+
+        String menu = request.getParameter("menu");
+        // (#3.4) Lakukan pengecekan jika var menu bernilai null atau kosong
+        if (menu == null || menu.isEmpty()) {
+            // (#3.5) Lakukan send redirect ke view, gunakan product?
+            response.sendRedirect("product?menu=view");
+            return;
+        }
+
+        Product productModel = new Product();
+
+        if ("view".equals(menu)) {
+            ArrayList<Product> products = productModel.get();
+            request.setAttribute("products", products);
+            request.getRequestDispatcher("/product/view.jsp").forward(request, response);
+
+        } else if ("add".equals(menu)) {
+            request.getRequestDispatcher("/product/add.jsp").forward(request, response);
+
+        } else if ("edit".equals(menu)) {
+            String id = request.getParameter("id");
+            Product product = productModel.find(id);
+            if (product != null) {
+                request.setAttribute("product", product);
+                request.getRequestDispatcher("/product/edit.jsp").forward(request, response);
+            } else {
+                response.sendRedirect("product?menu=view");
+            }
+
+        } else {
+            response.sendRedirect("product?menu=view");
+        }
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = request.getSession();
+        if (session == null || session.getAttribute("user") == null) {
+            response.sendRedirect(request.getContextPath() + "/index.jsp");
+            return;
+        }
+
+        String action = request.getParameter("action");
+        Product productModel = new Product();
+
+        if ("add".equals(action)) {
+            String name = request.getParameter("nama");
+            double price = Double.parseDouble(request.getParameter("harga"));
+
+            productModel.setName(name);
+            productModel.setPrice(price);
+            productModel.insert();
+
+        } else if ("edit".equals(action)) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            String name = request.getParameter("nama");
+            double price = Double.parseDouble(request.getParameter("harga"));
+
+            productModel.setId(id);
+            productModel.setName(name);
+            productModel.setPrice(price);
+            productModel.update();
+
+        // (#3.6) Lakukan pengecekan apakah var action bernilai "delete"
+        } else if (action.equals("delete")) {
+            // (#3.7) var id menyimpan nilai request parameter "id", lakukan juga parseInt
+            int id = Integer.parseInt(request.getParameter("id"));
+            // (#3.8) Dari object Product yang telah dibuat sebelumnya, lakukan setId dengan nilai var id
+            productModel.setId(id);
+            // (#3.9) Dari object Product yang telah dibuat sebelumnya, panggil method delete
+            productModel.delete();
+        }
+
+        response.sendRedirect("product?menu=view");
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }
