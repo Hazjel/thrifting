@@ -16,19 +16,14 @@ public class ProductController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // (#3.1) Inisialisasi object HttpSession untuk melakukan request session
         HttpSession session = request.getSession();
-        // (#3.2) Lakukan pengecekan apakah var session untuk atribut "user" bernilai null
         if (session.getAttribute("user") == null) {
-            // (#3.3) Lakukan send redirect secara langsung ke index.jsp
             response.sendRedirect("index.jsp");
             return;
         }
 
         String menu = request.getParameter("menu");
-        // (#3.4) Lakukan pengecekan jika var menu bernilai null atau kosong
         if (menu == null || menu.isEmpty()) {
-            // (#3.5) Lakukan send redirect ke view, gunakan product?
             response.sendRedirect("product?menu=view");
             return;
         }
@@ -88,13 +83,9 @@ public class ProductController extends HttpServlet {
             productModel.setPrice(price);
             productModel.update();
 
-        // (#3.6) Lakukan pengecekan apakah var action bernilai "delete"
         } else if (action.equals("delete")) {
-            // (#3.7) var id menyimpan nilai request parameter "id", lakukan juga parseInt
             int id = Integer.parseInt(request.getParameter("id"));
-            // (#3.8) Dari object Product yang telah dibuat sebelumnya, lakukan setId dengan nilai var id
             productModel.setId(id);
-            // (#3.9) Dari object Product yang telah dibuat sebelumnya, panggil method delete
             productModel.delete();
         }
 
