@@ -109,8 +109,8 @@ public class Product {
             Connection conn = JDBC.getConnection();
             System.out.println("Koneksi database berhasil");
 
-            // Mengubah ORDER BY menjadi ASC (terlama ke terbaru) - sebelumnya DESC
-            String sql = "SELECT * FROM produk ORDER BY id ASC";
+            // Menambahkan LIMIT 4 untuk hanya mengambil 4 produk
+            String sql = "SELECT * FROM produk ORDER BY id ASC LIMIT 4";
             System.out.println("Menjalankan query: " + sql);
 
             PreparedStatement stmt = conn.prepareStatement(sql);

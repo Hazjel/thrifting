@@ -74,7 +74,15 @@
                                             imageName = "Kappa.png";
                                         } else if (productName.contains("oakley")) {
                                             imageName = "Oakley.png";
-                                        } // tambahkan kondisi lain sesuai kebutuhan
+                                        } else if (productName.contains("hijau")) {
+                                            imageName = "Baju Hijau.png";
+                                        } else if (productName.contains("orange")) {
+                                            imageName = "Baju Orange.png";
+                                        } else if (productName.contains("panjang")) {
+                                            imageName = "Jeans Panjang.png";
+                                        } else if (productName.contains("pendek")) {
+                                            imageName = "Jeans Pendek.png";
+                                        }// tambahkan kondisi lain sesuai kebutuhan
                                     }
                                     %>
                                     <img src="assets/<%= imageName %>" alt="<%= item.getName() %>">
@@ -83,7 +91,7 @@
                                     <div class="item-info">
                                         <h3>Rp <%= String.format("%,.0f", item.getPrice()) %></h3>
                                         <p><%= item.getName() %></p>
-                                        <p>Size: <%= item.getSize() %></p>
+                                        <p><%= item.getSize() %></p>
                                     </div>
                                     <a href="#" class="fav">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37"
@@ -135,7 +143,15 @@
                                     imageName = "Kappa.png";
                                 } else if (productName.contains("oakley")) {
                                     imageName = "Oakley.png";
-                                } // tambahkan kondisi lain sesuai kebutuhan
+                                } else if (productName.contains("hijau")) {
+                                    imageName = "Baju Hijau.png";
+                                } else if (productName.contains("orange")) {
+                                    imageName = "Baju Orange.png";
+                                } else if (productName.contains("panjang")) {
+                                    imageName = "Jeans Panjang.png";
+                                } else if (productName.contains("pendek")) {
+                                    imageName = "Jeans Pendek.png";
+                                }// tambahkan kondisi lain sesuai kebutuhan
                             }
                             %>
                             <img src="assets/<%= imageName %>" alt="<%= item.getName() %>">
@@ -144,7 +160,7 @@
                             <div class="item-info">
                                 <h3>Rp <%= String.format("%,.0f", item.getPrice()) %></h3>
                                 <p><%= item.getName() %></p>
-                                <p>Size: <%= item.getSize() %></p>
+                                <p><%= item.getSize() %></p>
                             </div>
                             <a href="#" class="fav">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37"
