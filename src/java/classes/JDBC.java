@@ -7,11 +7,11 @@ public class JDBC {
     private Statement stmt;
     private boolean isConnected;
     private String message;
-    
+
     public void connect() {
         try {
-            Connection conn = getConnection();
-            stmt = conn.createStatement();
+            con = getConnection(); // perbaiki di sini
+            stmt = con.createStatement();
             isConnected = true;
             message = "DB connected";
         } catch(Exception e) {
@@ -101,7 +101,7 @@ public class JDBC {
             }
 
             // Coba koneksi dengan opsi yang lebih toleran
-            String url = "jdbc:mysql://localhost:3306/" + dbname +
+            String url = "jdbc:mysql://localhost:3307/" + dbname +
                          "?useSSL=false" +
                          "&allowPublicKeyRetrieval=true" +
                          "&useUnicode=true" +
