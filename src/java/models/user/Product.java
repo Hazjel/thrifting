@@ -1,4 +1,4 @@
-package models.auth;
+package models.user;
 
 public class Product {
     private int id;
