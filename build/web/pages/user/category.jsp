@@ -23,7 +23,7 @@
             <div class="filter-container">
                 <div class="filter-title">
                     <h1>Filter</h1>
-                    <img src="../assets/filter-icon.png" alt="filter-icon">
+                    <img src="../../assets/filter-icon.png" alt="filter-icon">
                 </div>
                 <hr>
                 <div class="item-category">
@@ -56,42 +56,42 @@
                 <div class="item-content">
                     <div class="item-list">
                         <div class="item">
-                            <img src="../assets/image-8.png" alt="Item 3">
+                            <img src="../../assets/image-8.png" alt="Item 3">
                             <div class="item-desc">
                                 <h3>Item 3</h3>
                                 <p>$39.99</p>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="../assets/image-8.png" alt="Item 3">
+                            <img src="../../assets/image-8.png" alt="Item 3">
                             <div class="item-desc">
                                 <h3>Item 3</h3>
                                 <p>$39.99</p>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="../assets/image-8.png" alt="Item 3">
+                            <img src="../../assets/image-8.png" alt="Item 3">
                             <div class="item-desc">
                                 <h3>Item 3</h3>
                                 <p>$39.99</p>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="../assets/image-8.png" alt="Item 3">
+                            <img src="../../assets/image-8.png" alt="Item 3">
                             <div class="item-desc">
                                 <h3>Item 3</h3>
                                 <p>$39.99</p>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="../assets/image-8.png" alt="Item 3">
+                            <img src="../../assets/image-8.png" alt="Item 3">
                             <div class="item-desc">
                                 <h3>Item 3</h3>
                                 <p>$39.99</p>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="../assets/image-8.png" alt="Item 3">
+                            <img src="../../assets/image-8.png" alt="Item 3">
                             <div class="item-desc">
                                 <h3>Item 3</h3>
                                 <p>$39.99</p>

@@ -15,7 +15,7 @@
     </div>
 
     <div class="nav">
-        <a href="../pages/category.jsp">Category</a>
+        <a href="../pages/user/category.jsp">Category</a>
         <a href="../index.jsp#new-arrival">New Arrivals</a>
         <a href="#">Bid</a>
     </div>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="cart-icon">
-            <a href="../pages/cart.jsp">
+            <a href="../pages/user/cart.jsp">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="35" viewBox="0 0 25 24" fill="none">
                     <g clip-path="url(#clip0_1_4730)">
                         <path
