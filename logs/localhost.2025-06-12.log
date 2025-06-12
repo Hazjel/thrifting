@@ -1,0 +1,514 @@
+12-Jun-2025 14:37:56.438 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [] threw exception [The absolute uri: [http://java.sun.com/jsp/jstl/core] cannot be resolved in either web.xml or the jar files deployed with this application] with root cause
+	org.apache.jasper.JasperException: The absolute uri: [http://java.sun.com/jsp/jstl/core] cannot be resolved in either web.xml or the jar files deployed with this application
+		at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:37)
+		at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:270)
+		at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:77)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.generateTldResourcePath(TagLibraryInfoImpl.java:248)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.<init>(TagLibraryInfoImpl.java:122)
+		at org.apache.jasper.compiler.Parser.parseTaglibDirective(Parser.java:415)
+		at org.apache.jasper.compiler.Parser.parseDirective(Parser.java:468)
+		at org.apache.jasper.compiler.Parser.parseElements(Parser.java:1361)
+		at org.apache.jasper.compiler.Parser.parse(Parser.java:137)
+		at org.apache.jasper.compiler.ParserController.doParse(ParserController.java:243)
+		at org.apache.jasper.compiler.ParserController.parse(ParserController.java:106)
+		at org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:193)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:366)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1575)
+12-Jun-2025 14:39:19.856 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [] threw exception [The absolute uri: [http://java.sun.com/jsp/jstl/core] cannot be resolved in either web.xml or the jar files deployed with this application] with root cause
+	org.apache.jasper.JasperException: The absolute uri: [http://java.sun.com/jsp/jstl/core] cannot be resolved in either web.xml or the jar files deployed with this application
+		at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:37)
+		at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:270)
+		at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:77)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.generateTldResourcePath(TagLibraryInfoImpl.java:248)
+		at org.apache.jasper.compiler.TagLibraryInfoImpl.<init>(TagLibraryInfoImpl.java:122)
+		at org.apache.jasper.compiler.Parser.parseTaglibDirective(Parser.java:415)
+		at org.apache.jasper.compiler.Parser.parseDirective(Parser.java:468)
+		at org.apache.jasper.compiler.Parser.parseElements(Parser.java:1361)
+		at org.apache.jasper.compiler.Parser.parse(Parser.java:137)
+		at org.apache.jasper.compiler.ParserController.doParse(ParserController.java:243)
+		at org.apache.jasper.compiler.ParserController.parse(ParserController.java:106)
+		at org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:193)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:366)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1575)
+12-Jun-2025 14:40:01.134 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [46] in the jsp file: [/index.jsp]
+List cannot be resolved to a type
+43:         <div class="hot-item-content">
+44:             <div class="container-content">
+45:                 <%
+46:                     List<models.auth.Product> hotItems = (List<models.auth.Product>) request.getAttribute("hotItems");
+47:                     if (hotItems != null) {
+48:                         for (models.auth.Product item : hotItems) {
+49:                 %>
+
+
+An error occurred at line: [46] in the jsp file: [/index.jsp]
+List cannot be resolved to a type
+43:         <div class="hot-item-content">
+44:             <div class="container-content">
+45:                 <%
+46:                     List<models.auth.Product> hotItems = (List<models.auth.Product>) request.getAttribute("hotItems");
+47:                     if (hotItems != null) {
+48:                         for (models.auth.Product item : hotItems) {
+49:                 %>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [46] in the jsp file: [/index.jsp]
+List cannot be resolved to a type
+43:         <div class="hot-item-content">
+44:             <div class="container-content">
+45:                 <%
+46:                     List<models.auth.Product> hotItems = (List<models.auth.Product>) request.getAttribute("hotItems");
+47:                     if (hotItems != null) {
+48:                         for (models.auth.Product item : hotItems) {
+49:                 %>
+
+
+An error occurred at line: [46] in the jsp file: [/index.jsp]
+List cannot be resolved to a type
+43:         <div class="hot-item-content">
+44:             <div class="container-content">
+45:                 <%
+46:                     List<models.auth.Product> hotItems = (List<models.auth.Product>) request.getAttribute("hotItems");
+47:                     if (hotItems != null) {
+48:                         for (models.auth.Product item : hotItems) {
+49:                 %>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:573)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1575)
+12-Jun-2025 14:50:56.763 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [55] in the jsp file: [/index.jsp]
+Product cannot be resolved to a variable
+52:                     } else if (hotItems.isEmpty()) {
+53:                         out.println("<div style='color:orange'>hotItems kosong. Data tidak ditemukan di database.</div>");
+54:                     } else {
+55:                         for (models.auth.Product item : Product) {
+56:                 %>
+57:                             <div class="item">
+58:                                 <a href="#">
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [55] in the jsp file: [/index.jsp]
+Product cannot be resolved to a variable
+52:                     } else if (hotItems.isEmpty()) {
+53:                         out.println("<div style='color:orange'>hotItems kosong. Data tidak ditemukan di database.</div>");
+54:                     } else {
+55:                         for (models.auth.Product item : Product) {
+56:                 %>
+57:                             <div class="item">
+58:                                 <a href="#">
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:573)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1575)
+12-Jun-2025 14:50:56.958 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [] threw exception [org.apache.jasper.JasperException: java.lang.ClassNotFoundException: org.apache.jsp.index_jsp] with root cause
+	java.lang.ClassNotFoundException: org.apache.jsp.index_jsp
+		at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:445)
+		at org.apache.jasper.servlet.JasperLoader.loadClass(JasperLoader.java:119)
+		at org.apache.jasper.servlet.JasperLoader.loadClass(JasperLoader.java:56)
+		at org.apache.catalina.core.DefaultInstanceManager.newInstance(DefaultInstanceManager.java:150)
+		at org.apache.jasper.servlet.JspServletWrapper.getServlet(JspServletWrapper.java:174)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:393)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1575)
+12-Jun-2025 16:14:14.657 SEVERE [http-nio-8080-exec-5] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [86] in the jsp file: [/index.jsp]
+The method getSize() is undefined for the type Product
+83:                                     <div class="item-info">
+84:                                         <h3>Rp <%= String.format("%,.0f", item.getPrice()) %></h3>
+85:                                         <p><%= item.getName() %></p>
+86:                                         <p>Size: <%= item.getSize() %></p>
+87:                                     </div>
+88:                                     <a href="#" class="fav">
+89:                                         <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37"
+
+
+An error occurred at line: [147] in the jsp file: [/index.jsp]
+The method getSize() is undefined for the type Product
+144:                             <div class="item-info">
+145:                                 <h3>Rp <%= String.format("%,.0f", item.getPrice()) %></h3>
+146:                                 <p><%= item.getName() %></p>
+147:                                 <p>Size: <%= item.getSize() %></p>
+148:                             </div>
+149:                             <a href="#" class="fav">
+150:                                 <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37"
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [86] in the jsp file: [/index.jsp]
+The method getSize() is undefined for the type Product
+83:                                     <div class="item-info">
+84:                                         <h3>Rp <%= String.format("%,.0f", item.getPrice()) %></h3>
+85:                                         <p><%= item.getName() %></p>
+86:                                         <p>Size: <%= item.getSize() %></p>
+87:                                     </div>
+88:                                     <a href="#" class="fav">
+89:                                         <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37"
+
+
+An error occurred at line: [147] in the jsp file: [/index.jsp]
+The method getSize() is undefined for the type Product
+144:                             <div class="item-info">
+145:                                 <h3>Rp <%= String.format("%,.0f", item.getPrice()) %></h3>
+146:                                 <p><%= item.getName() %></p>
+147:                                 <p>Size: <%= item.getSize() %></p>
+148:                             </div>
+149:                             <a href="#" class="fav">
+150:                                 <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37"
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:573)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1575)
+12-Jun-2025 16:14:20.078 SEVERE [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [86] in the jsp file: [/index.jsp]
+The method getSize() is undefined for the type Product
+83:                                     <div class="item-info">
+84:                                         <h3>Rp <%= String.format("%,.0f", item.getPrice()) %></h3>
+85:                                         <p><%= item.getName() %></p>
+86:                                         <p>Size: <%= item.getSize() %></p>
+87:                                     </div>
+88:                                     <a href="#" class="fav">
+89:                                         <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37"
+
+
+An error occurred at line: [147] in the jsp file: [/index.jsp]
+The method getSize() is undefined for the type Product
+144:                             <div class="item-info">
+145:                                 <h3>Rp <%= String.format("%,.0f", item.getPrice()) %></h3>
+146:                                 <p><%= item.getName() %></p>
+147:                                 <p>Size: <%= item.getSize() %></p>
+148:                             </div>
+149:                             <a href="#" class="fav">
+150:                                 <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37"
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [86] in the jsp file: [/index.jsp]
+The method getSize() is undefined for the type Product
+83:                                     <div class="item-info">
+84:                                         <h3>Rp <%= String.format("%,.0f", item.getPrice()) %></h3>
+85:                                         <p><%= item.getName() %></p>
+86:                                         <p>Size: <%= item.getSize() %></p>
+87:                                     </div>
+88:                                     <a href="#" class="fav">
+89:                                         <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37"
+
+
+An error occurred at line: [147] in the jsp file: [/index.jsp]
+The method getSize() is undefined for the type Product
+144:                             <div class="item-info">
+145:                                 <h3>Rp <%= String.format("%,.0f", item.getPrice()) %></h3>
+146:                                 <p><%= item.getName() %></p>
+147:                                 <p>Size: <%= item.getSize() %></p>
+148:                             </div>
+149:                             <a href="#" class="fav">
+150:                                 <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37"
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:573)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1575)
+12-Jun-2025 16:14:25.573 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [86] in the jsp file: [/index.jsp]
+The method getSize() is undefined for the type Product
+83:                                     <div class="item-info">
+84:                                         <h3>Rp <%= String.format("%,.0f", item.getPrice()) %></h3>
+85:                                         <p><%= item.getName() %></p>
+86:                                         <p>Size: <%= item.getSize() %></p>
+87:                                     </div>
+88:                                     <a href="#" class="fav">
+89:                                         <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37"
+
+
+An error occurred at line: [147] in the jsp file: [/index.jsp]
+The method getSize() is undefined for the type Product
+144:                             <div class="item-info">
+145:                                 <h3>Rp <%= String.format("%,.0f", item.getPrice()) %></h3>
+146:                                 <p><%= item.getName() %></p>
+147:                                 <p>Size: <%= item.getSize() %></p>
+148:                             </div>
+149:                             <a href="#" class="fav">
+150:                                 <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37"
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [86] in the jsp file: [/index.jsp]
+The method getSize() is undefined for the type Product
+83:                                     <div class="item-info">
+84:                                         <h3>Rp <%= String.format("%,.0f", item.getPrice()) %></h3>
+85:                                         <p><%= item.getName() %></p>
+86:                                         <p>Size: <%= item.getSize() %></p>
+87:                                     </div>
+88:                                     <a href="#" class="fav">
+89:                                         <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37"
+
+
+An error occurred at line: [147] in the jsp file: [/index.jsp]
+The method getSize() is undefined for the type Product
+144:                             <div class="item-info">
+145:                                 <h3>Rp <%= String.format("%,.0f", item.getPrice()) %></h3>
+146:                                 <p><%= item.getName() %></p>
+147:                                 <p>Size: <%= item.getSize() %></p>
+148:                             </div>
+149:                             <a href="#" class="fav">
+150:                                 <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37"
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:573)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1575)
