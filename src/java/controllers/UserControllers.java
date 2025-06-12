@@ -1,79 +1,93 @@
 package controllers;
 
+import classes.JDBC;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.sql.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 
 @WebServlet(name = "UserControllers", urlPatterns = {"/UserControllers"})
 public class UserControllers extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet UserControllers</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet UserControllers at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+    public static String hashPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hash = md.digest(password.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for (byte b : hash) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+        String action = request.getParameter("action");
+
+        if ("login".equals(action)) {
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+
+            String hashedPassword = hashPassword(password);
+
+            JDBC db = new JDBC();
+            ResultSet rs = db.getData("SELECT * FROM users WHERE username = '" + username + "' AND password = '" + hashedPassword + "'");
+
+            try {
+                if (rs != null && rs.next()) {
+                    HttpSession session = request.getSession();
+                    session.setAttribute("user", rs.getString("username"));
+                    session.setAttribute("email", rs.getString("email"));
+                    response.sendRedirect("index.jsp");
+                } else {
+                    response.sendRedirect("pages/login.jsp");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                response.sendRedirect("login.jsp?error=db");
+            }
+        }
+
+        // Register juga perlu hash password:
+        else if ("register".equals(action)) {
+            String username = request.getParameter("username");
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+            String confirmPassword = request.getParameter("confirm-password");
+
+            if (username == null || email == null || password == null || confirmPassword == null ||
+                    username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                response.sendRedirect("pages/register.jsp?error=empty");
+                return;
+            }
+
+            if (!password.equals(confirmPassword)) {
+                response.sendRedirect("pages/register.jsp?error=nomatch");
+                return;
+            }
+
+            String hashedPassword = hashPassword(password);
+
+            String query = "INSERT INTO users (username, email, password) VALUES ('"
+                    + username + "', '" + email + "', '" + hashedPassword + "')";
+
+            JDBC db = new JDBC();
+            db.runQuery(query);
+
+            response.sendRedirect("pages/login.jsp?registered=true");
+        }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+        return "Handles user login, register, logout using custom JDBC class";
+    }
 }
