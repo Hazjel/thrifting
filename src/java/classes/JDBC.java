@@ -1,57 +1,74 @@
 package classes;
+
 import java.sql.*;
 
 public class JDBC {
     private Connection con;
-    private Statement stmt;
-    private boolean isConnected;
     private String message;
-    
-    public void connect() {
-        String dbname = "db_barang";
-        String username = "root";
-        String password = "";
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3307/" + dbname, username, password);
-            stmt = con.createStatement();
-            isConnected = true;
-            message = "DB connected";
-        } catch(Exception e) {
-            isConnected = false;
-            message = e.getMessage();
-        }
+
+    private final String dbname = "db_barang";
+    private final String username = "root";
+    private final String password = "";
+
+    private void connect() throws Exception {
+        Class.forName("com.mysql.cj.jdbc.Driver"); // pakai 'cj' bukan yang lama
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + dbname + "?useSSL=false", username, password);
     }
-    
+
     private void disconnect() {
         try {
-            stmt.close();
-            con.close();
-        } catch(Exception e) {
+            if (con != null && !con.isClosed()) {
+                con.close();
+            }
+        } catch (Exception e) {
             message = e.getMessage();
         }
     }
-    
-    public void runQuery(String query) {
+
+    // Untuk INSERT/UPDATE/DELETE pakai prepared statement
+    public boolean runQuery(String query, Object... params) {
+        boolean success = false;
         try {
             connect();
-            int result = stmt.executeUpdate(query);
+            PreparedStatement ps = con.prepareStatement(query);
+
+            for (int i = 0; i < params.length; i++) {
+                ps.setObject(i + 1, params[i]);
+            }
+
+            int result = ps.executeUpdate();
             message = "info: " + result + " rows affected";
-        } catch(Exception e) {
-            message = e.getMessage();
+            success = result > 0;
+            ps.close();
+        } catch (Exception e) {
+            message = "error: " + e.getMessage();
+            e.printStackTrace(); // biar kelihatan errornya
         } finally {
             disconnect();
         }
+        return success;
     }
-    
-    public ResultSet getData(String query) {
+
+    // Untuk SELECT
+    public ResultSet getData(String query, Object... params) {
         ResultSet rs = null;
         try {
             connect();
-            rs = stmt.executeQuery(query);
-        } catch(Exception e) {
-            message = e.getMessage();
+            PreparedStatement ps = con.prepareStatement(query);
+
+            for (int i = 0; i < params.length; i++) {
+                ps.setObject(i + 1, params[i]);
+            }
+
+            rs = ps.executeQuery();
+        } catch (Exception e) {
+            message = "error: " + e.getMessage();
+            e.printStackTrace();
         }
         return rs;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }

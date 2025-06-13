@@ -17,7 +17,7 @@
 
         <div class="container">
             <div class="form">
-                <form action="#" method="#">
+                <form action="#" method="">
                     <div class="username">
                         <label for="username">Username</label>
                         <input type="text" id="username" name="username" placeholder="Input your username" required>
