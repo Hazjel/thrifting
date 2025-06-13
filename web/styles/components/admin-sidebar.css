@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+}
+
+.sidebar {
+    width: 277px;
+    height: 100vh;
+    flex-shrink: 0;
+    border-right: 1px solid #000;
+    background: #FFF;
+
+    & .profile {
+        display: flex;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+
+        & svg {
+            margin-top: 46px;
+            width: 98px;
+            height: 98px;
+            aspect-ratio: 1/1;
+        }
+
+        & p {
+            color: #000;
+            text-align: right;
+            font-family: Inter, sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+    }
+
+    & nav {
+        margin-top: 65px;
+        margin-left: 32px;
+        display: flex;
+        height: 92px;
+        gap: 16px;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        flex-shrink: 0;
+
+        & a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: black;
+        }
+    }
+
+    & .logout {
+        margin-top: 50px;
+        margin-left: 32px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: black;
+    }
+}

@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+}
+
+.welcome {
+    display: flex;
+    width: 1032px;
+    padding: 24px 16px;
+    align-items: center;
+    gap: 10px;
+
+    & p {
+        color: #000;
+        text-align: right;
+        font-family: Inter, sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+}

@@ -16,7 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import models.auth.Product;
+import models.user.Product;
 
 /**
  *
@@ -76,49 +76,17 @@ public class ProductControllers extends HttpServlet {
      * @return The image filename to display
      */
     private String getProductImage(Product product) {
-        String imageName = "image-8.png"; // default image
-
-        if (product.getName() != null) {
-            String productName = product.getName().toLowerCase();
-
-            if (productName.contains("nike")) {
-                imageName = "Baju Nike.png";
-            } else if (productName.contains("kappa")) {
-                imageName = "Kappa.png";
-            } else if (productName.contains("oakley")) {
-                imageName = "Oakley.png";
-            } else if (productName.contains("hijau")) {
-                imageName = "Baju Hijau.png";
-            } else if (productName.contains("orange")) {
-                imageName = "Baju Orange.png";
-            } else if (productName.contains("pendek")) {
-                imageName = "Jeans Pendek.png";
-            } else if (productName.contains("panjang")) {
-                imageName = "Jeans Panjang.png";
-            } else if (productName.contains("adidas") || productName.contains("adicolor") || productName.contains("streifen")) {
-                imageName = "Adidas Originals T-Shirt Adicolor 3-Streifen.jpg";
-            } else if (productName.contains("cargo") ) {
-                imageName = "cargo shorts.jpg";
-            } else if (productName.contains("graphic")) {
-                imageName = "graphic hoodie.jpg";
-            } else if (productName.contains("korean") || productName.contains("high waist") || productName.contains("denim shorts")) {
-                imageName = "Korean High Waist Denim Shorts - White _ XXXL.jpg";
-            } else if (productName.contains("oversize") || productName.contains("heavyweight")) {
-                imageName = "Oversize Heavyweight Hoodie WN6606.jpg";
-            } else if (productName.contains("slim fit") || productName.contains("jeans")) {
-                imageName = "slim fit jeans.jpg";
-            } else if (productName.contains("stripped") || productName.contains("shirt")) {
-                imageName = "stripped shirt.jpg";
-            } else if (productName.contains("totebag") || productName.contains("tote bag")) {
-                imageName = "totebag.png";
-            } else if (productName.contains("vintage") || productName.contains("levi's") || productName.contains("levis")) {
-                imageName = "Vintage Levi's 501 Jeans - W35 L34.jpg";
-            } else if (productName.contains("white") || productName.contains("tee")) {
-                imageName = "Your Search Is Over for the Perfect White Tee.png";
+        // Jika produk memiliki path gambar dari database, gunakan itu
+        if (product.getPhoto() != null && !product.getPhoto().isEmpty()) {
+            System.out.println("Menggunakan photo dari database: " + product.getPhoto());
+            // Pastikan path relatif, tidak termasuk 'images/'
+            String photoPath = product.getPhoto();
+            if (photoPath.startsWith("images/")) {
+                return photoPath.substring(7); // Hapus 'images/' dari awal path
             }
+            return photoPath;
         }
-
-        return imageName;
+        return "clothes.png"; // Default image if no photo is available
     }
 
     /**

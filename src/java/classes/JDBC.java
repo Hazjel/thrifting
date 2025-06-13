@@ -8,6 +8,13 @@ public class JDBC {
     private boolean isConnected;
     private String message;
 
+
+    // Menambahkan getter untuk message
+    public String getMessage() {
+        return message;
+    }
+
+
     public void connect() {
         try {
             con = getConnection(); // perbaiki di sini
@@ -21,7 +28,7 @@ public class JDBC {
             e.printStackTrace();
         }
     }
-    
+
     private void disconnect() {
         try {
             if (stmt != null) stmt.close();
@@ -30,7 +37,7 @@ public class JDBC {
             message = e.getMessage();
         }
     }
-    
+
     public void runQuery(String query) {
         try {
             connect();
@@ -43,7 +50,32 @@ public class JDBC {
             disconnect();
         }
     }
-    
+
+    public boolean runQuery(String query, Object... params) {
+        boolean success = false;
+        try {
+            connect();
+            PreparedStatement pstmt = con.prepareStatement(query);
+
+            // Set parameters
+            for (int i = 0; i < params.length; i++) {
+                pstmt.setObject(i + 1, params[i]);
+            }
+
+            int result = pstmt.executeUpdate();
+            message = "info: " + result + " rows affected";
+            success = true;
+
+            if (pstmt != null) pstmt.close();
+        } catch(Exception e) {
+            message = e.getMessage();
+            System.err.println("runQuery with params error: " + e.getMessage());
+        } finally {
+            disconnect();
+        }
+        return success;
+    }
+
     public ResultSet getData(String query) {
         ResultSet rs = null;
         try {
@@ -52,6 +84,26 @@ public class JDBC {
         } catch(Exception e) {
             message = e.getMessage();
             System.err.println("getData error: " + e.getMessage());
+        }
+        return rs;
+    }
+
+    public ResultSet getData(String query, Object... params) {
+        ResultSet rs = null;
+        try {
+            connect();
+            PreparedStatement pstmt = con.prepareStatement(query);
+
+            // Set parameters
+            for (int i = 0; i < params.length; i++) {
+                pstmt.setObject(i + 1, params[i]);
+            }
+
+            rs = pstmt.executeQuery();
+            // Note: We don't close the PreparedStatement here because that would close the ResultSet
+        } catch(Exception e) {
+            message = e.getMessage();
+            System.err.println("getData with params error: " + e.getMessage());
         }
         return rs;
     }
@@ -78,9 +130,9 @@ public class JDBC {
 
             // Coba driver yang tersedia di Java
             String[] possibleDrivers = {
-                "com.mysql.cj.jdbc.Driver",  // Driver baru (MySQL 8+)
-                "com.mysql.jdbc.Driver",     // Driver lama (MySQL 5.x)
-                "org.mariadb.jdbc.Driver"    // MariaDB Driver (kompatibel dengan MySQL)
+                    "com.mysql.cj.jdbc.Driver",  // Driver baru (MySQL 8+)
+                    "com.mysql.jdbc.Driver",     // Driver lama (MySQL 5.x)
+                    "org.mariadb.jdbc.Driver"    // MariaDB Driver (kompatibel dengan MySQL)
             };
 
             boolean driverFound = false;
@@ -101,12 +153,16 @@ public class JDBC {
             }
 
             // Coba koneksi dengan opsi yang lebih toleran
+
+           
+
             String url = "jdbc:mysql://localhost:3307/" + dbname +
                          "?useSSL=false" +
                          "&allowPublicKeyRetrieval=true" +
                          "&useUnicode=true" +
                          "&serverTimezone=UTC" +
                          "&useOldAliasMetadataBehavior=true";
+
 
             System.out.println("Mencoba koneksi ke URL: " + url);
             Connection conn = DriverManager.getConnection(url, username, password);
