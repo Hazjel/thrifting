@@ -1,6 +1,7 @@
 <!--
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %>
 <%@ page import="models.auth.Product" %>
 -->
 <!DOCTYPE html>
@@ -45,13 +46,11 @@
             <div class="new-arrival-item">
                 <%
                     List<Product> products = (List<Product>) request.getAttribute("products");
-                    if (products == null) {
-                        // Jika products belum ada di request, ambil langsung dari database
-                        products = Product.getProducts();
-                    }
+                    Map<Integer, String> productImages = (Map<Integer, String>) request.getAttribute("productImages");
 
                     if (products == null) {
-                        out.println("<div style='color:red'>products is null. Pastikan akses lewat ProductControllers!</div>");
+                        response.sendRedirect("ProductControllers");
+                        return;
                     } else if (products.isEmpty()) {
                         out.println("<div style='color:orange'>products kosong. Data tidak ditemukan di database.</div>");
                     } else {
@@ -61,31 +60,13 @@
                             <div class="item">
                                 <a href="pages/user/description.jsp?id=<%= item.getId() %>">
                                     <%
-                                    // Pilih gambar berdasarkan nama produk
-                                    String imageName = "item1.png"; // default image
-
-                                    // Cek nama produk dan sesuaikan dengan gambar yang tersedia
-                                    if (item.getName() != null) {
-                                        String productName = item.getName().toLowerCase();
-
-                                        if (productName.contains("nike")) {
-                                            imageName = "Baju Nike.png";
-                                        } else if (productName.contains("kappa")) {
-                                            imageName = "Kappa.png";
-                                        } else if (productName.contains("oakley")) {
-                                            imageName = "Oakley.png";
-                                        } else if (productName.contains("hijau")) {
-                                            imageName = "Baju Hijau.png";
-                                        } else if (productName.contains("orange")) {
-                                            imageName = "Baju Orange.png";
-                                        } else if (productName.contains("panjang")) {
-                                            imageName = "Jeans Panjang.png";
-                                        } else if (productName.contains("pendek")) {
-                                            imageName = "Jeans Pendek.png";
-                                        }// tambahkan kondisi lain sesuai kebutuhan
+                                    // Get image path from controller
+                                    String imageName = "item1.png"; // Default fallback
+                                    if (productImages != null && productImages.containsKey(item.getId())) {
+                                        imageName = productImages.get(item.getId());
                                     }
                                     %>
-                                    <img src="assets/<%= imageName %>" alt="<%= item.getName() %>">
+                                    <img src="<%= request.getContextPath() %>/assets/<%= imageName %>" alt="<%= item.getName() %>">
                                 </a>
                                 <div class="desc">
                                     <div class="item-info">
@@ -119,7 +100,12 @@
             <div class="new-arrival-item">
                 <%
                     // Mengambil produk terbaru dari database (4 produk terbaru)
-                    List<Product> newArrivals = Product.getHotItems();
+                    List<Product> newArrivals = (List<Product>) request.getAttribute("hotItems");
+                    Map<Integer, String> hotItemsImages = (Map<Integer, String>) request.getAttribute("hotItemsImages");
+
+                    if (newArrivals == null) {
+                        newArrivals = Product.getHotItems();
+                    }
 
                     if (newArrivals == null || newArrivals.isEmpty()) {
                         out.println("<div style='color:orange'>Produk terbaru tidak ditemukan di database.</div>");
@@ -130,31 +116,13 @@
                     <div class="item">
                         <a href="pages/user/description.jsp?id=<%= item.getId() %>">
                             <%
-                            // Pilih gambar berdasarkan nama produk
+                            // Get image from controller or use default
                             String imageName = "item1.png"; // default image
-
-                            // Cek nama produk dan sesuaikan dengan gambar yang tersedia
-                            if (item.getName() != null) {
-                                String productName = item.getName().toLowerCase();
-
-                                if (productName.contains("nike")) {
-                                    imageName = "Baju Nike.png";
-                                } else if (productName.contains("kappa")) {
-                                    imageName = "Kappa.png";
-                                } else if (productName.contains("oakley")) {
-                                    imageName = "Oakley.png";
-                                } else if (productName.contains("hijau")) {
-                                    imageName = "Baju Hijau.png";
-                                } else if (productName.contains("orange")) {
-                                    imageName = "Baju Orange.png";
-                                } else if (productName.contains("panjang")) {
-                                    imageName = "Jeans Panjang.png";
-                                } else if (productName.contains("pendek")) {
-                                    imageName = "Jeans Pendek.png";
-                                }// tambahkan kondisi lain sesuai kebutuhan
+                            if (hotItemsImages != null && hotItemsImages.containsKey(item.getId())) {
+                                imageName = hotItemsImages.get(item.getId());
                             }
                             %>
-                            <img src="assets/<%= imageName %>" alt="<%= item.getName() %>">
+                            <img src="<%= request.getContextPath() %>/assets/<%= imageName %>" alt="<%= item.getName() %>">
                         </a>
                         <div class="desc">
                             <div class="item-info">
