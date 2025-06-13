@@ -7,8 +7,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Sekenly | Home</title>
-    <%-- Auto Refresh Tiap 5 Detik --%>
-    <meta http-equiv="refresh" content="5">
 
     <jsp:include page="./components/navbar.jsp" />
 

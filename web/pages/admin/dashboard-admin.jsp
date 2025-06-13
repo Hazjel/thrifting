@@ -1,3 +1,12 @@
+<%@ page import="models.user.User" %>
+<%
+    User currentUser = (User) session.getAttribute("user");
+    String displayName = "Guest";
+    if (currentUser != null) {
+        displayName = currentUser.getUsername();
+    }
+%>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,6 +26,7 @@
     <jsp:include page="../../components/admin-sidebar.jsp"/>
 
     <div class="welcome">
-        <p>Selamat Datang, admin!</p>
+        <p>Selamat Datang, <%= displayName %>!
+        </p>
     </div>
 </html>

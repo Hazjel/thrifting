@@ -1,3 +1,12 @@
+<%@ page import="models.user.User" %>
+<%
+    User currentUser = (User) session.getAttribute("user");
+    String displayName = "Guest";
+    if (currentUser != null) {
+        displayName = currentUser.getUsername();
+    }
+%>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,7 +27,8 @@
 
 <div class="container-dashboard" id="dashboard">
     <p class="welcome-text">
-        Selamat datang User!
+        Selamat datang, <%= displayName %>!
+
     </p>
 
     <div class="content">

@@ -28,7 +28,7 @@
 
             & h1 {
                 color: #FDFDFD;
-                font-family: "Abril Fatface";
+                font-family: "Abril Fatface", sans-serif;
                 font-size: 69px;
                 font-style: normal;
                 font-weight: 400;
@@ -37,7 +37,7 @@
 
             & p {
                 color: #FFF;
-                font-family: Adamina;
+                font-family: Adamina, sans-serif;
                 font-size: 16px;
                 font-style: normal;
                 font-weight: 400;
@@ -56,7 +56,7 @@
             border-radius: 62px;
             background: #FFF;
             color: #000;
-            font-family: Inter;
+            font-family: Inter, sans-serif;
             font-size: 16px;
             font-style: normal;
             font-weight: 500;
@@ -104,7 +104,7 @@
     & h1 {
         color: #000;
         text-align: center;
-        font-family: "Abril Fatface";
+        font-family: "Abril Fatface", sans-serif;
         font-size: 48px;
         font-style: normal;
         font-weight: 400;
@@ -185,7 +185,7 @@
 
                         & p {
                             color: #000;
-                            font-family: Inter;
+                            font-family: Inter, sans-serif;
                             font-size: 20px;
                             font-style: normal;
                             font-weight: 300;
@@ -208,7 +208,7 @@
             border-radius: 62px;
             background: #FFF;
             color: #000;
-            font-family: Inter;
+            font-family: Inter, sans-serif;
             font-size: 16px;
             font-style: normal;
             font-weight: 500;
@@ -225,7 +225,7 @@
             & a {
                 text-decoration: none;
                 color: #000;
-                font-family: Inter;
+                font-family: Inter, sans-serif;
                 font-size: 16px;
                 font-style: normal;
                 font-weight: 500;
@@ -253,7 +253,7 @@
     & h1 {
         color: #000;
         text-align: center;
-        font-family: "Abril Fatface";
+        font-family: Abril Fatface, sans-serif;
         font-size: 48px;
         font-style: normal;
         font-weight: 400;
@@ -334,7 +334,7 @@
             border-radius: 62px;
             background: #FFF;
             color: #000;
-            font-family: Inter;
+            font-family: Inter, sans-serif;
             font-size: 16px;
             font-style: normal;
             font-weight: 500;
@@ -351,7 +351,7 @@
             & a {
                 text-decoration: none;
                 color: #000;
-                font-family: Inter;
+                font-family: Inter, sans-serif;
                 font-size: 16px;
                 font-style: normal;
                 font-weight: 500;

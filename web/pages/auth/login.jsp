@@ -19,7 +19,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Login | Sekenly</title>
 
-    <link rel="stylesheet" href="../styles/login.css">
+    <link rel="stylesheet" href="../../styles/login.css">
 </head>
 
 <body>
@@ -78,7 +78,7 @@
     </div>
 
     <div class="back">
-        <a href="../index.jsp">Return to Homepage</a>
+        <a href="../../index.jsp">Return to Homepage</a>
     </div>
 </div>
 </body>

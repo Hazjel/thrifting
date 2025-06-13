@@ -73,9 +73,9 @@ public class AuthControllers extends HttpServlet {
             session.setAttribute("username", user.getUsername());
             session.setAttribute("role", user.getRoleType());
             if (user.getRoleType().equals("seller")) {
-                response.sendRedirect(request.getContextPath() + "/pages/dashboard-admin.jsp");
+                response.sendRedirect(request.getContextPath() + "/pages/admin/dashboard-admin.jsp");
             } else {
-                response.sendRedirect(request.getContextPath() + "/pages/dashboard.jsp");
+                response.sendRedirect(request.getContextPath() + "/pages/user/dashboard.jsp");
             }
         } else {
             request.setAttribute("error", "Email atau password salah!");
@@ -93,12 +93,12 @@ public class AuthControllers extends HttpServlet {
                 username.trim().isEmpty() || email.trim().isEmpty() ||
                 password.trim().isEmpty() || confirmPassword.trim().isEmpty()) {
             request.setAttribute("error", "Semua field harus diisi!");
-            request.getRequestDispatcher("/pages/register.jsp").forward(request, response);
+            request.getRequestDispatcher("/pages/auth/register.jsp").forward(request, response);
             return;
         }
         if (!password.equals(confirmPassword)) {
             request.setAttribute("error", "Password dan Confirm Password harus sama!");
-            request.getRequestDispatcher("/pages/register.jsp").forward(request, response);
+            request.getRequestDispatcher("/pages/auth/register.jsp").forward(request, response);
             return;
         }
         try {
@@ -112,11 +112,11 @@ public class AuthControllers extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/pages/user/dashboard.jsp");
             } else {
                 request.setAttribute("error", "Registrasi berhasil, tapi login gagal. Silakan login manual.");
-                request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
+                request.getRequestDispatcher("/pages/auth/login.jsp").forward(request, response);
             }
         } catch (Exception e) {
             request.setAttribute("error", "Registrasi gagal! " + e.getMessage());
-            request.getRequestDispatcher("/pages/register.jsp").forward(request, response);
+            request.getRequestDispatcher("/pages/auth/register.jsp").forward(request, response);
         }
     }
 
@@ -126,7 +126,7 @@ public class AuthControllers extends HttpServlet {
         if (session != null) {
             session.invalidate();
         }
-        response.sendRedirect(request.getContextPath() + "/auth/login");
+        response.sendRedirect(request.getContextPath() + "/");
     }
 
     private String getAction(HttpServletRequest request) {

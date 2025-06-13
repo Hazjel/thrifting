@@ -28,7 +28,7 @@ footer {
 
     & h1 {
         color: #000;
-        font-family: "Abril Fatface";
+        font-family: Abril Fatface, sans-serif;
         font-size: 33px;
         font-style: normal;
         font-weight: 400;
@@ -37,7 +37,7 @@ footer {
 
     & {
         color: rgba(0, 0, 0, 0.60);
-        font-family: Adamina;
+        font-family: Adamina, sans-serif;
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
@@ -47,6 +47,7 @@ footer {
 
 .logo {
     display: flex;
+    margin-top: 10px;
     align-items: flex-start;
     gap: 14px;
 
@@ -79,7 +80,7 @@ footer {
 
     & h2 {
         color: #000;
-        font-family: Inter;
+        font-family: Inter, sans-serif;
         font-size: 16px;
         font-style: normal;
         font-weight: 500;
@@ -95,7 +96,7 @@ footer {
 
         & a {
             color: black;
-            font-family: Adamina;
+            font-family: Adamina, sans-serif;
             font-size: 16px;
             font-style: normal;
             font-weight: 400;
@@ -118,7 +119,7 @@ footer {
 
     & h2 {
         color: #000;
-        font-family: Inter;
+        font-family: Inter, sans-serif;
         font-size: 16px;
         font-style: normal;
         font-weight: 500;
@@ -134,7 +135,7 @@ footer {
 
         & a {
             color: black;
-            font-family: Adamina;
+            font-family: Adamina, sans-serif;
             font-size: 16px;
             font-style: normal;
             font-weight: 400;
@@ -157,7 +158,7 @@ footer {
 
     & h2 {
         color: #000;
-        font-family: Inter;
+        font-family: Inter, sans-serif;
         font-size: 16px;
         font-style: normal;
         font-weight: 500;
@@ -173,7 +174,7 @@ footer {
 
         & a {
             color: black;
-            font-family: Adamina;
+            font-family: Adamina, sans-serif;
             font-size: 16px;
             font-style: normal;
             font-weight: 400;
@@ -196,7 +197,7 @@ footer {
 
     & h2 {
         color: #000;
-        font-family: Inter;
+        font-family: Inter, sans-serif;
         font-size: 16px;
         font-style: normal;
         font-weight: 500;
@@ -212,7 +213,7 @@ footer {
 
         & a {
             color: black;
-            font-family: Adamina;
+            font-family: Adamina, sans-serif;
             font-size: 16px;
             font-style: normal;
             font-weight: 400;

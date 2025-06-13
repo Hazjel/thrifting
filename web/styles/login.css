@@ -20,8 +20,7 @@ body {
     flex-shrink: 0;
 
     & .title {
-        display: flex;
-        width: 130px;
+        /*display: flex;*/
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
@@ -30,7 +29,7 @@ body {
 
         & h1 {
             color: #000;
-            font-family: "Abril Fatface";
+            font-family: "Abril Fatface", sans-serif;
             font-size: 40px;
             font-style: normal;
             font-weight: 400;
@@ -42,7 +41,7 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
+        /*align-items: flex-start;*/
         gap: 32px;
         align-self: stretch;
 
@@ -54,7 +53,7 @@ body {
             gap: 16px;
             align-self: stretch;
 
-            & .username {
+            & .email {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -66,7 +65,7 @@ body {
 
                 & label {
                     color: #000;
-                    font-family: Adamina;
+                    font-family: Adamina, sans-serif;
                     font-size: 16px;
                     font-style: normal;
                     font-weight: 400;
@@ -95,7 +94,7 @@ body {
 
                 & label {
                     color: #000;
-                    font-family: Adamina;
+                    font-family: Adamina, sans-serif;
                     font-size: 16px;
                     font-style: normal;
                     font-weight: 400;
@@ -130,7 +129,7 @@ body {
 
             & p {
                 color: #FFF;
-                font-family: Adamina;
+                font-family: Adamina, sans-serif;
                 font-size: 16px;
                 font-style: normal;
                 font-weight: 400;
@@ -144,7 +143,7 @@ body {
 
             & a {
                 color: #000;
-                font-family: Adamina;
+                font-family: Adamina, sans-serif;
                 font-style: normal;
                 font-weight: 400;
                 line-height: normal;
@@ -171,7 +170,7 @@ body {
 
         & a {
             color: #FFF;
-            font-family: Adamina;
+            font-family: Adamina, sans-serif;
             font-size: 16px;
             font-style: normal;
             font-weight: 400;

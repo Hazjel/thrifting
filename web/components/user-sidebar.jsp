@@ -1,8 +1,17 @@
+<%@ page import="models.user.User" %>
+<%
+    User currentUser = (User) session.getAttribute("user");
+    String displayName = "Guest";
+    if (currentUser != null) {
+        displayName = currentUser.getUsername();
+    }
+%>
+
 <div class="sidebar-container">
 
     <div class="profile-container">
         <img src="" alt="Foto Profil">
-        <p>Nama Pengguna</p>
+        <p><%= displayName %></p>
     </div>
 
     <nav>
@@ -43,7 +52,7 @@
             <path d="M1 1H217" stroke="#172554" stroke-linecap="round"/>
         </svg>
 
-        <form action="" method="POST">
+        <form action="<%= request.getContextPath() %>/auth/logout" method="GET">
             <button>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <mask id="mask0_156_373" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20"
