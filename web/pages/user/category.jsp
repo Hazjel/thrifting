@@ -1,4 +1,4 @@
-<%@ page import="models.auth.Product" %>
+<%@ page import="models.user.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
@@ -9,9 +9,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category</title>
-    <link rel="stylesheet" href="/styles/category.css">
-    <link rel="stylesheet" href="/styles/navbar.css">
-    <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/category.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/navbar.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/footer.css">
 </head>
 
 <body>
@@ -43,14 +43,14 @@
 
     <div class="content">
         <div class="breadcrumb">
-            <a href="/">Home</a> &gt; <span>Category</span> <% if(selectedCategory != null) { %> &gt; <span><%= selectedCategory %></span> <% } %>
+            <a href="<%=request.getContextPath()%>/">Home</a> &gt; <span>Category</span> <% if(selectedCategory != null) { %> &gt; <span><%= selectedCategory %></span> <% } %>
         </div>
 
         <div class="container">
             <div class="filter-container">
                 <div class="filter-title">
                     <h1>Filter</h1>
-                    <img src="../../assets/filter-icon.png" alt="filter-icon">
+                    <img src="<%=request.getContextPath()%>/assets/filter-icon.png" alt="filter-icon">
                 </div>
                 <hr>
                 <div class="item-category">

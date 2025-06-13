@@ -1,4 +1,4 @@
-package models.auth;
+package models.user;
 import classes.JDBC;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,7 +13,8 @@ public class Product {
     private double price;
     private int stock;
     private String size;
-    private String category; // Adding proper category attribute
+    private String category;
+    private String photo; // Tambahkan atribut photo
 
     public Product(int id, String name, String description, double price, int stock, String size, String category) {
         this.id = id;
@@ -23,6 +24,18 @@ public class Product {
         this.stock = stock;
         this.size = size;
         this.category = category;
+        this.photo = null;
+    }
+
+    public Product(int id, String name, String description, double price, int stock, String size, String category, String photo) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.stock = stock;
+        this.size = size;
+        this.category = category;
+        this.photo = photo;
     }
 
     public int getId() {
@@ -81,33 +94,41 @@ public class Product {
         this.category = category;
     }
 
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
     public static List<Product> getHotItems() {
         List<Product> hotItems = new ArrayList<>();
         try {
             Connection conn = JDBC.getConnection();
-            String sql = "SELECT * FROM produk WHERE jumlah > 0 ORDER BY id DESC LIMIT 4"; // Ambil 4 produk terbaru yang tersedia
+            String sql = "SELECT * FROM products WHERE price > 0 ORDER BY id DESC LIMIT 4"; // Ambil 4 produk terbaru yang tersedia
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Product p = new Product(
                     rs.getInt("id"),
-                    rs.getString("nama"),
-                    "", // description tidak ada di tabel, isi string kosong
-                    rs.getDouble("harga"),
-                    rs.getInt("jumlah"),
-                    rs.getString("ukuran"),
-                    rs.getString("kategori") // Add the category field
+                    rs.getString("name"),
+                    rs.getString("description") != null ? rs.getString("description") : "",
+                    rs.getDouble("price"),
+                    0, // stock tidak ada, gunakan nilai default
+                    "", // size tidak ada, gunakan string kosong
+                    rs.getString("category"),
+                    rs.getString("photo") // Tambahkan photo
                 );
                 hotItems.add(p);
+                System.out.println("Hot item loaded: " + p.getName() + ", photo: " + p.getPhoto());
             }
             System.out.println("Jumlah hot item: " + hotItems.size());
-            for (Product p : hotItems) {
-                System.out.println(p.getName() + " - " + p.getPrice() + " - Size: " + p.getSize() + " - Category: " + p.getCategory());
-            }
             rs.close();
             stmt.close();
             conn.close();
         } catch (Exception e) {
+            System.err.println("Error getting hot items: " + e.getMessage());
             e.printStackTrace();
         }
         return hotItems;
@@ -120,8 +141,7 @@ public class Product {
             Connection conn = JDBC.getConnection();
             System.out.println("Koneksi database berhasil");
 
-            // Menambahkan LIMIT 4 untuk hanya mengambil 4 produk
-            String sql = "SELECT * FROM produk ORDER BY id ASC LIMIT 4";
+            String sql = "SELECT * FROM products ORDER BY id ASC LIMIT 4";
             System.out.println("Menjalankan query: " + sql);
 
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -133,22 +153,23 @@ public class Product {
             while (rs.next()) {
                 count++;
                 int id = rs.getInt("id");
-                String nama = rs.getString("nama");
-                double harga = rs.getDouble("harga");
-                int jumlah = rs.getInt("jumlah");
-                String ukuran = rs.getString("ukuran");
-                String kategori = rs.getString("kategori");
+                String name = rs.getString("name");
+                double price = rs.getDouble("price");
+                String description = rs.getString("description");
+                String category = rs.getString("category");
+                String photo = rs.getString("photo");
 
-                System.out.println("Data #" + count + ": id=" + id + ", nama=" + nama + ", harga=" + harga + ", ukuran=" + ukuran + ", kategori=" + kategori);
+                System.out.println("Data #" + count + ": id=" + id + ", name=" + name + ", price=" + price + ", category=" + category + ", photo=" + photo);
 
                 Product p = new Product(
                     id,
-                    nama,
-                    "", // description tidak ada di tabel
-                    harga,
-                    jumlah,
-                    ukuran,
-                    kategori
+                    name,
+                    description != null ? description : "",
+                    price,
+                    0, // stock tidak ada di tabel
+                    "", // size tidak ada di tabel
+                    category,
+                    photo
                 );
                 products.add(p);
             }
@@ -169,19 +190,20 @@ public class Product {
         try {
             Connection conn = JDBC.getConnection();
             // Changed from LIMIT 10 to LIMIT 9
-            String sql = "SELECT * FROM produk ORDER BY id ASC LIMIT 9";
+            String sql = "SELECT * FROM products ORDER BY id ASC LIMIT 9";
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
                 Product p = new Product(
                     rs.getInt("id"),
-                    rs.getString("nama"),
-                    "", // description tidak ada di tabel
-                    rs.getDouble("harga"),
-                    rs.getInt("jumlah"),
-                    rs.getString("ukuran"),
-                    rs.getString("kategori")
+                    rs.getString("name"),
+                    rs.getString("description") != null ? rs.getString("description") : "",
+                    rs.getDouble("price"),
+                    0, // stock tidak ada, gunakan nilai default
+                    "", // size tidak ada, gunakan string kosong
+                    rs.getString("category"),
+                    rs.getString("photo") // Add photo field
                 );
                 products.add(p);
             }
@@ -200,7 +222,7 @@ public class Product {
         List<Product> products = new ArrayList<>();
         try {
             Connection conn = JDBC.getConnection();
-            String sql = "SELECT * FROM produk WHERE LOWER(kategori) LIKE ? ORDER BY id ASC LIMIT 10";
+            String sql = "SELECT * FROM products WHERE LOWER(category) LIKE ? ORDER BY id ASC LIMIT 10";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, "%" + category.toLowerCase() + "%");
 
@@ -209,12 +231,13 @@ public class Product {
             while (rs.next()) {
                 Product p = new Product(
                     rs.getInt("id"),
-                    rs.getString("nama"),
-                    "", // description tidak ada di tabel
-                    rs.getDouble("harga"),
-                    rs.getInt("jumlah"),
-                    rs.getString("ukuran"),
-                    rs.getString("kategori")
+                    rs.getString("name"),
+                    rs.getString("description") != null ? rs.getString("description") : "",
+                    rs.getDouble("price"),
+                    0, // stock tidak ada, gunakan nilai default
+                    "", // size tidak ada, gunakan string kosong
+                    rs.getString("category"),
+                    rs.getString("photo") // Add photo field
                 );
                 products.add(p);
             }
@@ -241,7 +264,7 @@ public class Product {
             Connection conn = JDBC.getConnection();
             // Calculate the OFFSET based on page number (pages are 1-based, but OFFSET is 0-based)
             int offset = (pageNumber - 1) * productsPerPage;
-            String sql = "SELECT * FROM produk ORDER BY id ASC LIMIT ? OFFSET ?";
+            String sql = "SELECT * FROM products ORDER BY id ASC LIMIT ? OFFSET ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, productsPerPage);
             stmt.setInt(2, offset);
@@ -250,12 +273,13 @@ public class Product {
             while (rs.next()) {
                 Product p = new Product(
                     rs.getInt("id"),
-                    rs.getString("nama"),
-                    "", // description tidak ada di tabel
-                    rs.getDouble("harga"),
-                    rs.getInt("jumlah"),
-                    rs.getString("ukuran"),
-                    rs.getString("kategori")
+                    rs.getString("name"),
+                    rs.getString("description") != null ? rs.getString("description") : "",
+                    rs.getDouble("price"),
+                    0, // stock tidak ada, gunakan nilai default
+                    "", // size tidak ada, gunakan string kosong
+                    rs.getString("category"),
+                    rs.getString("photo") // Add photo field
                 );
                 products.add(p);
             }
@@ -287,15 +311,15 @@ public class Product {
             // Determine the ORDER BY clause based on sortBy parameter
             String orderByClause;
             if ("price-low-to-high".equals(sortBy)) {
-                orderByClause = "ORDER BY harga ASC";
+                orderByClause = "ORDER BY price ASC";
             } else if ("price-high-to-low".equals(sortBy)) {
-                orderByClause = "ORDER BY harga DESC";
+                orderByClause = "ORDER BY price DESC";
             } else {
                 // Default to newest (highest ID first)
                 orderByClause = "ORDER BY id DESC";
             }
 
-            String sql = "SELECT * FROM produk " + orderByClause + " LIMIT ? OFFSET ?";
+            String sql = "SELECT * FROM products " + orderByClause + " LIMIT ? OFFSET ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, productsPerPage);
             stmt.setInt(2, offset);
@@ -304,12 +328,13 @@ public class Product {
             while (rs.next()) {
                 Product p = new Product(
                     rs.getInt("id"),
-                    rs.getString("nama"),
-                    "", // description tidak ada di tabel
-                    rs.getDouble("harga"),
-                    rs.getInt("jumlah"),
-                    rs.getString("ukuran"),
-                    rs.getString("kategori")
+                    rs.getString("name"),
+                    rs.getString("description") != null ? rs.getString("description") : "",
+                    rs.getDouble("price"),
+                    0, // stock tidak ada, gunakan nilai default
+                    "", // size tidak ada, gunakan string kosong
+                    rs.getString("category"),
+                    rs.getString("photo") // Add photo field
                 );
                 products.add(p);
             }
@@ -342,15 +367,15 @@ public class Product {
             // Determine the ORDER BY clause based on sortBy parameter
             String orderByClause;
             if ("price-low-to-high".equals(sortBy)) {
-                orderByClause = "ORDER BY harga ASC";
+                orderByClause = "ORDER BY price ASC";
             } else if ("price-high-to-low".equals(sortBy)) {
-                orderByClause = "ORDER BY harga DESC";
+                orderByClause = "ORDER BY price DESC";
             } else {
                 // Default to newest (highest ID first)
                 orderByClause = "ORDER BY id DESC";
             }
 
-            String sql = "SELECT * FROM produk WHERE LOWER(kategori) LIKE ? " + orderByClause + " LIMIT ? OFFSET ?";
+            String sql = "SELECT * FROM products WHERE LOWER(category) LIKE ? " + orderByClause + " LIMIT ? OFFSET ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, "%" + category.toLowerCase() + "%");
             stmt.setInt(2, productsPerPage);
@@ -360,12 +385,13 @@ public class Product {
             while (rs.next()) {
                 Product p = new Product(
                     rs.getInt("id"),
-                    rs.getString("nama"),
-                    "", // description tidak ada di tabel
-                    rs.getDouble("harga"),
-                    rs.getInt("jumlah"),
-                    rs.getString("ukuran"),
-                    rs.getString("kategori")
+                    rs.getString("name"),
+                    rs.getString("description") != null ? rs.getString("description") : "",
+                    rs.getDouble("price"),
+                    0, // stock tidak ada, gunakan nilai default
+                    "", // size tidak ada, gunakan string kosong
+                    rs.getString("category"),
+                    rs.getString("photo") // Add photo field
                 );
                 products.add(p);
             }
@@ -388,7 +414,7 @@ public class Product {
         int count = 0;
         try {
             Connection conn = JDBC.getConnection();
-            String sql = "SELECT COUNT(*) AS total FROM produk";
+            String sql = "SELECT COUNT(*) AS total FROM products";
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 
@@ -415,7 +441,7 @@ public class Product {
         int count = 0;
         try {
             Connection conn = JDBC.getConnection();
-            String sql = "SELECT COUNT(*) AS total FROM produk WHERE LOWER(kategori) LIKE ?";
+            String sql = "SELECT COUNT(*) AS total FROM products WHERE LOWER(category) LIKE ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, "%" + category.toLowerCase() + "%");
             ResultSet rs = stmt.executeQuery();
@@ -442,35 +468,44 @@ public class Product {
     public static List<Product> getAllProductsSorted(String sortBy) {
         List<Product> products = new ArrayList<>();
         try {
+            System.out.println("Mengambil semua produk dengan pengurutan: " + sortBy);
             Connection conn = JDBC.getConnection();
+            System.out.println("Koneksi database berhasil");
 
             // Determine the ORDER BY clause based on sortBy parameter
             String orderByClause;
             if ("price-low-to-high".equals(sortBy)) {
-                orderByClause = "ORDER BY harga ASC";
+                orderByClause = "ORDER BY price ASC";
             } else if ("price-high-to-low".equals(sortBy)) {
-                orderByClause = "ORDER BY harga DESC";
+                orderByClause = "ORDER BY price DESC";
             } else {
                 // Default to newest (highest ID first)
                 orderByClause = "ORDER BY id DESC";
             }
 
-            String sql = "SELECT * FROM produk " + orderByClause;
+            String sql = "SELECT * FROM products " + orderByClause;
+            System.out.println("Query: " + sql);
+
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
+            int count = 0;
 
             while (rs.next()) {
+                count++;
                 Product p = new Product(
                     rs.getInt("id"),
-                    rs.getString("nama"),
-                    "", // description tidak ada di tabel
-                    rs.getDouble("harga"),
-                    rs.getInt("jumlah"),
-                    rs.getString("ukuran"),
-                    rs.getString("kategori")
+                    rs.getString("name"),
+                    rs.getString("description") != null ? rs.getString("description") : "",
+                    rs.getDouble("price"),
+                    0, // stock tidak ada, gunakan nilai default
+                    "", // size tidak ada, gunakan string kosong
+                    rs.getString("category"),
+                    rs.getString("photo") // Tambahkan photo
                 );
                 products.add(p);
             }
+
+            System.out.println("Total produk yang ditemukan: " + count);
 
             rs.close();
             stmt.close();
@@ -491,42 +526,51 @@ public class Product {
     public static List<Product> getAllProductsByCategorySorted(String category, String sortBy) {
         List<Product> products = new ArrayList<>();
         try {
+            System.out.println("Mengambil produk dengan kategori: " + category + " dan pengurutan: " + sortBy);
             Connection conn = JDBC.getConnection();
+            System.out.println("Koneksi database berhasil");
 
             // Determine the ORDER BY clause based on sortBy parameter
             String orderByClause;
             if ("price-low-to-high".equals(sortBy)) {
-                orderByClause = "ORDER BY harga ASC";
+                orderByClause = "ORDER BY price ASC";
             } else if ("price-high-to-low".equals(sortBy)) {
-                orderByClause = "ORDER BY harga DESC";
+                orderByClause = "ORDER BY price DESC";
             } else {
                 // Default to newest (highest ID first)
                 orderByClause = "ORDER BY id DESC";
             }
 
-            String sql = "SELECT * FROM produk WHERE LOWER(kategori) LIKE ? " + orderByClause;
+            String sql = "SELECT * FROM products WHERE LOWER(category) LIKE ? " + orderByClause;
+            System.out.println("Query: " + sql + " with parameter: '%" + category.toLowerCase() + "%'");
+
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, "%" + category.toLowerCase() + "%");
             ResultSet rs = stmt.executeQuery();
+            int count = 0;
 
             while (rs.next()) {
+                count++;
                 Product p = new Product(
                     rs.getInt("id"),
-                    rs.getString("nama"),
-                    "", // description tidak ada di tabel
-                    rs.getDouble("harga"),
-                    rs.getInt("jumlah"),
-                    rs.getString("ukuran"),
-                    rs.getString("kategori")
+                    rs.getString("name"),
+                    rs.getString("description") != null ? rs.getString("description") : "",
+                    rs.getDouble("price"),
+                    0, // stock tidak ada, gunakan nilai default
+                    "", // size tidak ada, gunakan string kosong
+                    rs.getString("category"),
+                    rs.getString("photo") // Tambahkan photo
                 );
                 products.add(p);
             }
+
+            System.out.println("Total produk kategori " + category + " yang ditemukan: " + count);
 
             rs.close();
             stmt.close();
             conn.close();
         } catch (Exception e) {
-            System.err.println("ERROR saat mengambil semua produk berdasarkan kategori terurut: " + e.getMessage());
+            System.err.println("ERROR saat mengambil produk berdasarkan kategori terurut: " + e.getMessage());
             e.printStackTrace();
         }
         return products;

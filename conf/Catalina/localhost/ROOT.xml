@@ -4,5 +4,7 @@
     <PreResources base="C:/Users/Asus/OneDrive/Desktop/KULIAH/Semester 4/Praktikum PBO/TUBES/thrifting/out/production/thrifting" className="org.apache.catalina.webresources.DirResourceSet" webAppMount="/WEB-INF/classes"/>
     <PostResources base="C:/Users/Asus/OneDrive/Desktop/KULIAH/Semester 4/Praktikum PBO/javax.servlet-api-4.0.1 (2).jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/javax.servlet-api-4.0.1 (2).jar"/>
     <PostResources base="C:/Users/Asus/OneDrive/Desktop/KULIAH/Semester 4/Praktikum PBO/TUBES/thrifting/mysql-connector-j-9.3.0.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/mysql-connector-j-9.3.0.jar"/>
+    <PostResources base="C:/Users/Asus/OneDrive/Desktop/KULIAH/Semester 4/Praktikum PBO/commons-fileupload-1.6.0-bin/commons-fileupload-1.6.0-bin/commons-fileupload-1.6.0.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/commons-fileupload-1.6.0.jar"/>
+    <PostResources base="C:/Users/Asus/OneDrive/Desktop/KULIAH/Semester 4/Praktikum PBO/commons-io-2.19.0-bin/commons-io-2.19.0/commons-io-2.19.0.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/commons-io-2.19.0.jar"/>
   </Resources>
 </Context>
