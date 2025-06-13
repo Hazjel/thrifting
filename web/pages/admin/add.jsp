@@ -40,7 +40,9 @@
             <input type="file" id="photo" name="photo" accept="image/*" required>
 
             <div class="button">
-                <button type="reset">Batal</button>
+                <div class="cancel">
+                    <a href="${pageContext.request.contextPath}/product-list">Batal</a>
+                </div>
                 <button type="submit">Add</button>
             </div>
         </form>
