@@ -1,4 +1,4 @@
-package controllers.product;
+package controllers.crud;
 
 import dao.ProductDAO;
 import models.Product;

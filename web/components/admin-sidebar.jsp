@@ -29,7 +29,7 @@
             Dashboard
         </a>
 
-        <a href="">
+        <a href="../admin/list-barang-admin.jsp">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <mask id="mask0_156_705" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
                     <rect width="20" height="20" fill="#D9D9D9"/>
