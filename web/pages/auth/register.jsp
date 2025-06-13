@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>JSP Page</title>
 
-    <link rel="stylesheet" href="../styles/register.css">
+    <link rel="stylesheet" href="../../styles/register.css">
 </head>
 
 <body>
@@ -47,7 +47,7 @@
     <p>Already have account? <a href="login.jsp"> Login Here!</a></p>
 
     <div class="back">
-        <a href="../index.jsp">Return to Homepage</a>
+        <a href="../../index.jsp">Return to Homepage</a>
     </div>
 </div>
 </body>

@@ -2,33 +2,22 @@ package models.user;
 
 public class User {
     private int id;
-    private String name; // Menambahkan atribut name
-    private String username;
+    private String name;
     private String email;
-    private String password;
-    private String roleType; // "customer" or "seller"
+    private String username;
+    private String passwords;
+    private String roleType;
 
-    public User() {
-    }
+    public User() {}
 
-    public User(int id, String name, String username, String email, String password, String roleType) {
-        this.id = id;
+    public User(String name, String email, String username, String passwords, String roleType) {
         this.name = name;
-        this.username = username;
         this.email = email;
-        this.password = password;
+        this.username = username;
+        this.passwords = passwords;
         this.roleType = roleType;
     }
 
-    // Konstruktor tanpa name untuk kompatibilitas dengan kode lama
-    public User(int id, String username, String email, String password, String roleType) {
-        this.id = id;
-        this.name = username; // Gunakan username sebagai name jika tidak disediakan
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.roleType = roleType;
-    }
 
     public int getId() {
         return id;
@@ -46,14 +35,6 @@ public class User {
         this.name = name;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -62,17 +43,20 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getUsername() {
+        return username;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    // Alias untuk setPassword() dengan nama setPasswords() untuk menyesuaikan dengan kode di UserDAO
-    public void setPasswords(String password) {
-        this.password = password;
+    public String getPasswords() {
+        return passwords;
+    }
+
+    public void setPasswords(String passwords) {
+        this.passwords = passwords;
     }
 
     public String getRoleType() {

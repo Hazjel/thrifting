@@ -6,6 +6,6 @@
 </head>
 <body>
 <h1>Produk berhasil ditambahkan!</h1>
-<a href="../pages/admin/add.jsp">Tambah lagi</a>
+<a href="../admin/add.jsp">Tambah lagi</a>
 </body>
 </html>
