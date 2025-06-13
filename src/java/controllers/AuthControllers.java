@@ -34,6 +34,9 @@ public class AuthControllers extends HttpServlet {
             case "logout":
                 logout(request, response);
                 break;
+            case "dashboard":
+                redirectToDashboard(request, response);
+                break;
             default:
                 response.sendRedirect(request.getContextPath() + "/auth/login");
                 break;
@@ -72,11 +75,9 @@ public class AuthControllers extends HttpServlet {
             session.setAttribute("user", user);
             session.setAttribute("username", user.getUsername());
             session.setAttribute("role", user.getRoleType());
-            if (user.getRoleType().equals("seller")) {
-                response.sendRedirect(request.getContextPath() + "/pages/admin/dashboard-admin.jsp");
-            } else {
-                response.sendRedirect(request.getContextPath() + "/pages/user/dashboard.jsp");
-            }
+            
+            // Redirect ke index.jsp setelah login berhasil
+            response.sendRedirect(request.getContextPath() + "/index.jsp");
         } else {
             request.setAttribute("error", "Email atau password salah!");
             request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
@@ -109,7 +110,9 @@ public class AuthControllers extends HttpServlet {
                 session.setAttribute("user", user);
                 session.setAttribute("username", user.getUsername());
                 session.setAttribute("role", user.getRoleType());
-                response.sendRedirect(request.getContextPath() + "/pages/user/dashboard.jsp");
+                
+                // Redirect ke index.jsp setelah register berhasil
+                response.sendRedirect(request.getContextPath() + "/index.jsp");
             } else {
                 request.setAttribute("error", "Registrasi berhasil, tapi login gagal. Silakan login manual.");
                 request.getRequestDispatcher("/pages/auth/login.jsp").forward(request, response);
@@ -117,6 +120,22 @@ public class AuthControllers extends HttpServlet {
         } catch (Exception e) {
             request.setAttribute("error", "Registrasi gagal! " + e.getMessage());
             request.getRequestDispatcher("/pages/auth/register.jsp").forward(request, response);
+        }
+    }
+
+    private void redirectToDashboard(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+        HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("user") == null) {
+            response.sendRedirect(request.getContextPath() + "/auth/login");
+            return;
+        }
+
+        User user = (User) session.getAttribute("user");
+        if ("seller".equals(user.getRoleType())) {
+            response.sendRedirect(request.getContextPath() + "/pages/admin/dashboard-admin.jsp");
+        } else {
+            response.sendRedirect(request.getContextPath() + "/pages/user/dashboard.jsp");
         }
     }
 

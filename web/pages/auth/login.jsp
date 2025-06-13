@@ -1,16 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="models.user.User" %>
 <%
-    User currentUser = (User) session.getAttribute("user");
-    if (currentUser != null) {
-        response.sendRedirect(request.getContextPath() + "/pages/admin/dashboard-admin.jsp");
-        return;
-    }
-
     String errorMessage = (String) request.getAttribute("error");
     String logoutMessage = request.getParameter("message");
 %>
-
 
 <!DOCTYPE html>
 <html>
