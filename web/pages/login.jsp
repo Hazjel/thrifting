@@ -28,6 +28,7 @@
         <h1>Login</h1>
     </div>
 
+
     <% if (request.getAttribute("error") != null) { %>
     <div class="error"><%= request.getAttribute("error") %></div>
     <% } %>
@@ -77,6 +78,7 @@
 
     </div>
 
+
     <div class="back">
         <a href="../index.jsp">Return to Homepage</a>
     </div>
@@ -84,3 +86,6 @@
 </body>
 
 </html>
+
+
+

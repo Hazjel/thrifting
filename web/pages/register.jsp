@@ -15,6 +15,7 @@
         <p>Welcome to our registration page! Please fill out the form below to create your account.</p>
     </div>
 
+
     <% if (request.getAttribute("error") != null) { %>
     <div class="error"><%= request.getAttribute("error") %></div>
     <% } %>

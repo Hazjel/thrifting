@@ -8,15 +8,17 @@ public class JDBC {
     private boolean isConnected;
     private String message;
 
+
     // Menambahkan getter untuk message
     public String getMessage() {
         return message;
     }
 
+
     public void connect() {
         try {
-            Connection conn = getConnection();
-            stmt = conn.createStatement();
+            con = getConnection(); // perbaiki di sini
+            stmt = con.createStatement();
             isConnected = true;
             message = "DB connected";
         } catch(Exception e) {
@@ -151,12 +153,16 @@ public class JDBC {
             }
 
             // Coba koneksi dengan opsi yang lebih toleran
-            String url = "jdbc:mysql://localhost:3306/" + dbname +
-                    "?useSSL=false" +
-                    "&allowPublicKeyRetrieval=true" +
-                    "&useUnicode=true" +
-                    "&serverTimezone=UTC" +
-                    "&useOldAliasMetadataBehavior=true";
+
+           
+
+            String url = "jdbc:mysql://localhost:3307/" + dbname +
+                         "?useSSL=false" +
+                         "&allowPublicKeyRetrieval=true" +
+                         "&useUnicode=true" +
+                         "&serverTimezone=UTC" +
+                         "&useOldAliasMetadataBehavior=true";
+
 
             System.out.println("Mencoba koneksi ke URL: " + url);
             Connection conn = DriverManager.getConnection(url, username, password);
