@@ -1,16 +1,14 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="models.user.Product" %>
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Sekenly | Home</title>
-    <%-- Auto Refresh Tiap 5 Detik --%>
-    <meta http-equiv="refresh" content="5">
 
     <jsp:include page="./components/navbar.jsp" />
 
@@ -31,7 +29,7 @@
             <p>Temukan fashion favoritmu tanpa bikin dompet tipis. Barang second, kualitas juara!</p>
         </div>
 
-        <a class="btn" href="ProductControllers">Explore</a>
+        <a class="btn" href="<%= request.getContextPath() %>/ProductControllers?action=category">Explore</a>
     </div>
     <div class="image-wrapper">
         <img src="assets/clothes.png" alt="">
@@ -47,11 +45,8 @@
                 List<Product> products = (List<Product>) request.getAttribute("products");
                 Map<Integer, String> productImages = (Map<Integer, String>) request.getAttribute("productImages");
 
-                if (products == null) {
-                    response.sendRedirect("ProductControllers");
-                    return;
-                } else if (products.isEmpty()) {
-                    out.println("<div style='color:orange'>products kosong. Data tidak ditemukan di database.</div>");
+                if (products == null || products.isEmpty()) {
+                    out.println("<div style='color:orange'>Products kosong. Data tidak ditemukan di database.</div>");
                 } else {
                     // Loop melalui produk
                     for (Product item : products) {
@@ -60,7 +55,7 @@
                 <a href="<%= request.getContextPath() %>/ProductControllers?action=detail&id=<%= item.getId() %>">
                     <%
                         // Get image path from controller
-                        String imageName = "item1.png"; // Default fallback
+                        String imageName = "images/clothes.png"; // Default fallback
                         if (productImages != null && productImages.containsKey(item.getId())) {
                             imageName = productImages.get(item.getId());
                         }
@@ -80,7 +75,7 @@
             %>
         </div>
         <div class="btn">
-            <a href="ProductControllers">See More</a>
+            <a href="<%= request.getContextPath() %>/ProductControllers?action=category">See More</a>
         </div>
     </div>
 </div>
@@ -90,25 +85,20 @@
     <div class="container">
         <div class="new-arrival-item">
             <%
-                // Mengambil produk terbaru dari database (4 produk terbaru)
-                List<Product> newArrivals = (List<Product>) request.getAttribute("hotItems");
+                List<Product> hotItems = (List<Product>) request.getAttribute("hotItems");
                 Map<Integer, String> hotItemsImages = (Map<Integer, String>) request.getAttribute("hotItemsImages");
 
-                if (newArrivals == null) {
-                    newArrivals = Product.getHotItems();
-                }
-
-                if (newArrivals == null || newArrivals.isEmpty()) {
+                if (hotItems == null || hotItems.isEmpty()) {
                     out.println("<div style='color:orange'>Produk terbaru tidak ditemukan di database.</div>");
                 } else {
                     // Loop melalui produk terbaru
-                    for (Product item : newArrivals) {
+                    for (Product item : hotItems) {
             %>
             <div class="item">
                 <a href="<%= request.getContextPath() %>/ProductControllers?action=detail&id=<%= item.getId() %>">
                     <%
-                        // Get image from controller or use default
-                        String imageName = "item1.png"; // default image
+                        // Get image from controller
+                        String imageName = "images/clothes.png"; // default image
                         if (hotItemsImages != null && hotItemsImages.containsKey(item.getId())) {
                             imageName = hotItemsImages.get(item.getId());
                         }
@@ -129,7 +119,7 @@
             %>
         </div>
         <div class="btn">
-            <a href="ProductControllers">See More</a>
+            <a href="<%= request.getContextPath() %>/ProductControllers?action=category">See More</a>
         </div>
     </div>
 </div>

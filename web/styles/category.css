@@ -16,7 +16,7 @@
 
         & a {
             color: rgba(0, 0, 0, 0.60);
-            font-family: Adamina;
+            font-family: Adamina, sans-serif;
             font-size: 16px;
             font-style: normal;
             font-weight: 400;
@@ -26,7 +26,7 @@
 
         & span {
             color: #000;
-            font-family: Adamina;
+            font-family: Adamina, sans-serif;
             font-size: 16px;
             font-style: normal;
             font-weight: 400;
@@ -60,7 +60,7 @@
 
                 & h1 {
                     color: #000;
-                    font-family: Inter;
+                    font-family: Inter, sans-serif;
                     font-size: 20px;
                     font-style: normal;
                     font-weight: 700;
@@ -89,7 +89,7 @@
 
                 & a {
                     color: rgba(0, 0, 0, 0.60);
-                    font-family: Adamina;
+                    font-family: Adamina, sans-serif;
                     font-size: 16px;
                     font-style: normal;
                     font-weight: 400;
@@ -105,7 +105,7 @@
                 gap: 12px;
                 border: none;
                 color: #FFF;
-                font-family: Inter;
+                font-family: Inter, sans-serif;
                 font-size: 14px;
                 font-style: normal;
                 font-weight: 500;
@@ -131,7 +131,7 @@
 
                 & h2 {
                     color: #000;
-                    font-family: Inter;
+                    font-family: Inter, sans-serif;
                     font-size: 32px;
                     font-style: normal;
                     font-weight: 700;
@@ -145,7 +145,7 @@
 
                     & p {
                         color: rgba(0, 0, 0, 0.60);
-                        font-family: Adamina;
+                        font-family: Adamina, sans-serif;
                         font-size: 16px;
                         font-style: normal;
                         font-weight: 400;
@@ -159,7 +159,7 @@
 
                         & label {
                             color: rgba(0, 0, 0, 0.60);
-                            font-family: Adamina;
+                            font-family: Adamina, sans-serif;
                             font-size: 16px;
                             font-style: normal;
                             font-weight: 400;
@@ -171,7 +171,7 @@
                             height: 40px;
                             padding: 8px;
                             border-radius: 4px;
-                            font-family: Adamina;
+                            font-family: Adamina, sans-serif;
                             font-size: 16px;
                             font-style: normal;
                             font-weight: 400;
@@ -231,6 +231,11 @@
                             justify-content: center;
                             align-items: flex-start;
                             gap: 4px;
+
+                            & h3 a {
+                                text-decoration: none;
+                                color: black;
+                            }
                         }
                     }
                 }
@@ -265,7 +270,7 @@
                             border: 1px solid rgba(0, 0, 0, 0.10);
                             background: #FFF;
                             color: #000;
-                            font-family: Inter;
+                            font-family: Inter, sans-serif;
                             font-size: 14px;
                             font-style: normal;
                             font-weight: 500;

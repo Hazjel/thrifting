@@ -1,4 +1,3 @@
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
@@ -28,7 +27,7 @@ import models.user.Product;
  *
  * @author ASUS
  */
-@WebServlet(name = "ProductControllers", urlPatterns = {"/ProductControllers", "/categories"})
+@WebServlet(name = "ProductControllers", urlPatterns = {"/ProductControllers", "/categories", "/index.html", ""})
 public class ProductControllers extends HttpServlet {
 
     /**
@@ -50,32 +49,41 @@ public class ProductControllers extends HttpServlet {
             handleProductDetail(request, response);
         } else {
             // Default action - show products on index page
-            List<Product> products = Product.getProducts();
-
-            // Create a map of product IDs to image paths for index page
-            Map<Integer, String> productImages = new HashMap<>();
-            for (Product product : products) {
-                productImages.put(product.getId(), getProductImage(product));
-            }
-
-            // Get hot items (new arrivals)
-            List<Product> hotItems = Product.getHotItems();
-
-            // Create a map for hot items images
-            Map<Integer, String> hotItemsImages = new HashMap<>();
-            for (Product product : hotItems) {
-                hotItemsImages.put(product.getId(), getProductImage(product));
-            }
-
-            // Set attributes for the index page
-            request.setAttribute("products", products);
-            request.setAttribute("productImages", productImages);
-            request.setAttribute("hotItems", hotItems);
-            request.setAttribute("hotItemsImages", hotItemsImages);
-
-            // Forward ke index.jsp
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            handleIndexPage(request, response);
         }
+    }
+
+    /**
+     * Handle index page with all necessary data
+     */
+    private void handleIndexPage(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // Get all regular products
+        List<Product> products = Product.getProducts();
+
+        // Create a map of product IDs to image paths for index page
+        Map<Integer, String> productImages = new HashMap<>();
+        for (Product product : products) {
+            productImages.put(product.getId(), getProductImage(product));
+        }
+
+        // Get hot items (new arrivals)
+        List<Product> hotItems = Product.getHotItems();
+
+        // Create a map for hot items images
+        Map<Integer, String> hotItemsImages = new HashMap<>();
+        for (Product product : hotItems) {
+            hotItemsImages.put(product.getId(), getProductImage(product));
+        }
+
+        // Set attributes for the index page
+        request.setAttribute("products", products);
+        request.setAttribute("productImages", productImages);
+        request.setAttribute("hotItems", hotItems);
+        request.setAttribute("hotItemsImages", hotItemsImages);
+
+        // Forward ke index.jsp
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     /**
@@ -181,7 +189,7 @@ public class ProductControllers extends HttpServlet {
         List<String> availableCategories = getAvailableCategories();
         request.setAttribute("availableCategories", availableCategories);
 
-        // Forward to category.jsp
+        // Use an absolute path to ensure the correct JSP is served
         request.getRequestDispatcher("/pages/user/category.jsp").forward(request, response);
     }
 

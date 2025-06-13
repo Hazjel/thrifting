@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Detail | Sekenly</title>
 
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/web/styles/navbar.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/web/styles/footer.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/web/styles/description.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>styles/navbar.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>styles/footer.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>styles/description.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
