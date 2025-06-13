@@ -1,6 +1,7 @@
 package dao;
 
-import utils.*;
+//import utils.*;
+import classes.JDBC;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

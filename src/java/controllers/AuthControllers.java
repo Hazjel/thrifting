@@ -1,6 +1,6 @@
 package controllers;
 
-import dao.UserDao;
+import dao.UserDAO;
 import models.user.User;
 
 import javax.servlet.ServletException;
@@ -12,12 +12,12 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/auth/*")
-public class AuthController extends HttpServlet {
-    private UserDao userDao;
+public class AuthControllers extends HttpServlet {
+    private UserDAO userDao;
 
     @Override
     public void init() throws ServletException {
-        userDao = new UserDao();
+        userDao = new UserDAO();
     }
 
     @Override
