@@ -58,9 +58,15 @@
             </div>
 
             <div class="product-actions">
-                <button class="add-to-cart-btn">
-                    Beli Sekarang
-                </button>
+                <form action="<%=request.getContextPath()%>/pages/user/detail-pembelian.jsp" method="post">
+                    <input type="hidden" name="productId" value="<%= product.getId() %>">
+                    <input type="hidden" name="productName" value="<%= product.getName() %>">
+                    <input type="hidden" name="productPrice" value="<%= String.format("%,.0f", product.getPrice()) %>">
+                    <input type="hidden" name="productImage" value="<%= productImage %>">
+                    <button type="submit" class="add-to-cart-btn">
+                        Buy Now
+                    </button>
+                </form>
             </div>
         </div>
     </div>

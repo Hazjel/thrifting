@@ -43,15 +43,25 @@ public class UserDAO extends BaseDAO {
             if (rs != null && rs.next()) {
                 User user = new User();
 
+                user.setId(rs.getInt("id")); // Set the user ID
                 user.setName(rs.getString("name"));
                 user.setEmail(rs.getString("email"));
                 user.setUsername(rs.getString("username"));
                 user.setPasswords(rs.getString("passwords"));
                 user.setRoleType(rs.getString("role_type"));
 
+                // Debug: Print user details for troubleshooting
+                System.out.println("Login successful for: " + email);
+                System.out.println("Role type from database: " + rs.getString("role_type"));
+                System.out.println("User ID: " + rs.getInt("id")); // Debug log for user ID
+
                 return user;
             }
-        }catch (SQLException e) {
+            // Debug: Print when login fails
+            System.out.println("Login failed for: " + email);
+            System.out.println("No matching record found in database");
+
+        } catch (Exception e) {
             System.out.println("Login error: " + e.getMessage());
             e.printStackTrace();
         }

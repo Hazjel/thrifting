@@ -26,10 +26,10 @@ public class AuthControllers extends HttpServlet {
         String action = getAction(request);
         switch (action) {
             case "login":
-                request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
+                request.getRequestDispatcher("/pages/auth/login.jsp").forward(request, response);
                 break;
             case "register":
-                request.getRequestDispatcher("/pages/register.jsp").forward(request, response);
+                request.getRequestDispatcher("/pages/auth/register.jsp").forward(request, response);
                 break;
             case "logout":
                 logout(request, response);
@@ -66,7 +66,7 @@ public class AuthControllers extends HttpServlet {
         String password = request.getParameter("password");
         if (email == null || password == null || email.trim().isEmpty() || password.trim().isEmpty()) {
             request.setAttribute("error", "Email dan password harus diisi!");
-            request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
+            request.getRequestDispatcher("/pages/auth/login.jsp").forward(request, response);
             return;
         }
         User user = userDao.login(email, password);
@@ -76,11 +76,26 @@ public class AuthControllers extends HttpServlet {
             session.setAttribute("username", user.getUsername());
             session.setAttribute("role", user.getRoleType());
             
-            // Redirect ke index.jsp setelah login berhasil
-            response.sendRedirect(request.getContextPath() + "/index.jsp");
+            // Check if there's a redirect URL in session (for redirecting back to a product page)
+            String redirectUrl = (String) session.getAttribute("redirectAfterLogin");
+            if (redirectUrl != null) {
+                // Clear the redirect URL from session
+                session.removeAttribute("redirectAfterLogin");
+                // Redirect to the stored URL
+                response.sendRedirect(redirectUrl);
+            } else {
+                // Check user role and redirect accordingly
+                if ("seller".equals(user.getRoleType()) || "admin".equals(user.getRoleType())) {
+                    // Admin/seller redirects to admin dashboard
+                    response.sendRedirect(request.getContextPath() + "/pages/admin/dashboard-admin.jsp");
+                } else {
+                    // Regular users redirect to home page
+                    response.sendRedirect(request.getContextPath() + "/");
+                }
+            }
         } else {
             request.setAttribute("error", "Email atau password salah!");
-            request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
+            request.getRequestDispatcher("/pages/auth/login.jsp").forward(request, response);
         }
     }
 
@@ -111,8 +126,8 @@ public class AuthControllers extends HttpServlet {
                 session.setAttribute("username", user.getUsername());
                 session.setAttribute("role", user.getRoleType());
                 
-                // Redirect ke index.jsp setelah register berhasil
-                response.sendRedirect(request.getContextPath() + "/index.jsp");
+                // Redirect to root URL pattern which is handled by ProductControllers instead of directly to index.jsp
+                response.sendRedirect(request.getContextPath() + "/");
             } else {
                 request.setAttribute("error", "Registrasi berhasil, tapi login gagal. Silakan login manual.");
                 request.getRequestDispatcher("/pages/auth/login.jsp").forward(request, response);
@@ -124,7 +139,7 @@ public class AuthControllers extends HttpServlet {
     }
 
     private void redirectToDashboard(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
+            throws IOException, ServletException {
         HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("user") == null) {
             response.sendRedirect(request.getContextPath() + "/auth/login");
@@ -133,9 +148,9 @@ public class AuthControllers extends HttpServlet {
 
         User user = (User) session.getAttribute("user");
         if ("seller".equals(user.getRoleType())) {
-            response.sendRedirect(request.getContextPath() + "/pages/admin/dashboard-admin.jsp");
+            request.getRequestDispatcher("/pages/admin/dashboard-admin.jsp").forward(request, response);
         } else {
-            response.sendRedirect(request.getContextPath() + "/pages/user/dashboard.jsp");
+            request.getRequestDispatcher("/pages/user/dashboard.jsp").forward(request, response);
         }
     }
 

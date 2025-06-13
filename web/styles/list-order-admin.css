@@ -1,0 +1,139 @@
+/* General styling */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    display: flex;
+}
+
+.content {
+    margin-left: 270px;
+    padding: 30px;
+    width: calc(100% - 270px);
+}
+
+h1 {
+    color: #172554;
+    margin-bottom: 30px;
+}
+
+/* Table styling */
+.table-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-table th,
+.order-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.order-table th {
+    background-color: #f8f9fa;
+    color: #172554;
+    font-weight: 600;
+}
+
+.order-table tr:hover {
+    background-color: #f5f8ff;
+}
+
+/* Status indicators */
+.status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    min-width: 120px;
+}
+
+.status-menunggu-konfirmasi {
+    background-color: #feecdc;
+    color: #ff5a1f;
+}
+
+.status-dikonfirmasi {
+    background-color: #e1effe;
+    color: #3f83f8;
+}
+
+.status-diproses {
+    background-color: #fdf6b2;
+    color: #c27803;
+}
+
+.status-dikirim {
+    background-color: #def7ec;
+    color: #0e9f6e;
+}
+
+.status-selesai {
+    background-color: #d1fae5;
+    color: #047857;
+}
+
+.status-dibatalkan {
+    background-color: #fee2e2;
+    color: #e02424;
+}
+
+/* Address column */
+.address {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Action buttons */
+.action-buttons {
+    white-space: nowrap;
+}
+
+.status-select {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    background-color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #172554;
+}
+
+.status-select:focus {
+    outline: none;
+    border-color: #3f83f8;
+    box-shadow: 0 0 0 2px rgba(63, 131, 248, 0.25);
+}
+
+.no-data {
+    text-align: center;
+    color: #6b7280;
+    padding: 30px;
+    font-style: italic;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+    .content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .address {
+        max-width: 100px;
+    }
+}

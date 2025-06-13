@@ -71,7 +71,7 @@
     </div>
 
     <div class="back">
-        <a href="../../index.jsp">Return to Homepage</a>
+        <a href="/">Return to Homepage</a>
     </div>
 </div>
 </body>

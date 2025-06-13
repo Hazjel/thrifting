@@ -10,7 +10,7 @@
 <div class="sidebar-container">
 
     <div class="profile-container">
-        <img src="" alt="Foto Profil">
+        <img src="${pageContext.request.contextPath}/images/foto-profil.png" alt="Foto Profil">
         <p><%= displayName %></p>
     </div>
 
