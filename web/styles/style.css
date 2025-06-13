@@ -299,15 +299,21 @@
                     flex-direction: row;
                     width: 281px;
                     justify-content: space-between;
-                    align-items: flex-start;
 
                     & .item-info {
                         display: flex;
-                        width: 219px;
                         flex-direction: column;
-                        align-items: flex-start;
-                        gap: 6px;
-                        flex-shrink: 0;
+                        gap: 3px;
+
+                        & p a {
+                            text-decoration: none;
+                            color: #000;
+                            font-family: Inter;
+                            font-size: 20px;
+                            font-style: normal;
+                            font-weight: 300;
+                            line-height: normal;
+                        }
                     }
 
                     & .fav {

@@ -56,7 +56,7 @@
                         for (Product item : products) {
                 %>
                             <div class="item">
-                                <a href="pages/user/description.jsp?id=<%= item.getId() %>">
+                                <a href="<%= request.getContextPath() %>/ProductControllers?action=detail&id=<%= item.getId() %>">
                                     <%
                                     // Get image path from controller
                                     String imageName = "item1.png"; // Default fallback
@@ -69,7 +69,7 @@
                                 <div class="desc">
                                     <div class="item-info">
                                         <h3>Rp <%= String.format("%,.0f", item.getPrice()) %></h3>
-                                        <p><%= item.getName() %></p>
+                                        <p><a href="<%= request.getContextPath() %>/ProductControllers?action=detail&id=<%= item.getId() %>"><%= item.getName() %></a></p>
                                         <p><%= item.getSize() %></p>
                                     </div>
                                     <a href="#" class="fav">
@@ -112,7 +112,7 @@
                         for (Product item : newArrivals) {
                 %>
                     <div class="item">
-                        <a href="pages/user/description.jsp?id=<%= item.getId() %>">
+                        <a href="<%= request.getContextPath() %>/ProductControllers?action=detail&id=<%= item.getId() %>">
                             <%
                             // Get image from controller or use default
                             String imageName = "item1.png"; // default image
@@ -125,7 +125,7 @@
                         <div class="desc">
                             <div class="item-info">
                                 <h3>Rp <%= String.format("%,.0f", item.getPrice()) %></h3>
-                                <p><%= item.getName() %></p>
+                                <p><a href="<%= request.getContextPath() %>/ProductControllers?action=detail&id=<%= item.getId() %>"><%= item.getName() %></a></p>
                                 <p><%= item.getSize() %></p>
                             </div>
                             <a href="#" class="fav">

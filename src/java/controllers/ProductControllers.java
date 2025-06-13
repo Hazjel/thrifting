@@ -4,7 +4,12 @@
  */
 package controllers;
 
+
+import classes.JDBC;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -40,6 +45,8 @@ public class ProductControllers extends HttpServlet {
 
         if ("category".equals(action)) {
             handleCategoryPage(request, response);
+        } else if ("detail".equals(action)) {
+            handleProductDetail(request, response);
         } else {
             // Default action - show products on index page
             List<Product> products = Product.getProducts();
@@ -175,6 +182,85 @@ public class ProductControllers extends HttpServlet {
 
         // Forward to category.jsp
         request.getRequestDispatcher("/pages/user/category.jsp").forward(request, response);
+    }
+
+    /**
+     * Handle product detail page
+     */
+    private void handleProductDetail(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // Get product ID from request
+        String productIdParam = request.getParameter("id");
+
+        if (productIdParam == null || productIdParam.isEmpty()) {
+            // Redirect to home if no ID provided
+            response.sendRedirect(request.getContextPath() + "/");
+            return;
+        }
+
+        try {
+            int productId = Integer.parseInt(productIdParam);
+
+            // Get product from database
+            Product product = getProductById(productId);
+
+            if (product == null) {
+                // Product not found, redirect to home
+                response.sendRedirect(request.getContextPath() + "/");
+                return;
+            }
+
+            // Get product image
+            String productImage = getProductImage(product);
+
+            // Set attributes for the JSP
+            request.setAttribute("product", product);
+            request.setAttribute("productImage", productImage);
+
+            // Forward to product detail JSP
+            request.getRequestDispatcher("/pages/user/description.jsp").forward(request, response);
+
+        } catch (NumberFormatException e) {
+            // Invalid ID format, redirect to home
+            response.sendRedirect(request.getContextPath() + "/");
+        }
+    }
+
+    /**
+     * Get a product by ID from the database
+     */
+    private Product getProductById(int productId) {
+        try {
+            Connection conn = JDBC.getConnection();
+            String sql = "SELECT * FROM products WHERE id = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, productId);
+            ResultSet rs = stmt.executeQuery();
+
+            Product product = null;
+            if (rs.next()) {
+                product = new Product(
+                    rs.getInt("id"),
+                    rs.getString("name"),
+                    rs.getString("description") != null ? rs.getString("description") : "",
+                    rs.getDouble("price"),
+                    0, // stock might not be in database
+                    "", // size might not be in database
+                    rs.getString("category"),
+                    rs.getString("photo")
+                );
+            }
+
+            rs.close();
+            stmt.close();
+            conn.close();
+            return product;
+
+        } catch (Exception e) {
+            System.err.println("ERROR retrieving product with ID " + productId + ": " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**

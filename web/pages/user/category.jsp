@@ -110,9 +110,11 @@
                                     productImages.get(productId) : "images/clothes.png");
                     %>
                         <div class="item">
-                            <img src="<%= imagePath %>" alt="<%= productName %>">
+                            <a href="<%= request.getContextPath() %>/ProductControllers?action=detail&id=<%= productId %>">
+                                <img src="<%= imagePath %>" alt="<%= productName %>">
+                            </a>
                             <div class="item-desc">
-                                <h3><%= productName %></h3>
+                                <h3><a href="<%= request.getContextPath() %>/ProductControllers?action=detail&id=<%= productId %>"><%= productName %></a></h3>
                                 <p>Rp <%= String.format("%,.0f", price) %></p>
                             </div>
                         </div>
