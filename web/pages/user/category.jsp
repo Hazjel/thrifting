@@ -102,20 +102,18 @@
                             for(Product product : products) {
                                 String productName = product.getName();
                                 double price = product.getPrice();
-                                String size = product.getSize();
                                 int productId = product.getId();
 
                                 // Get image path from the map provided by controller
-                                String imagePath = request.getContextPath() + "/assets/" +
+                                String imagePath = request.getContextPath() + "/" +
                                     (productImages != null && productImages.containsKey(productId) ?
-                                    productImages.get(productId) : "image-8.png");
+                                    productImages.get(productId) : "images/clothes.png");
                     %>
                         <div class="item">
                             <img src="<%= imagePath %>" alt="<%= productName %>">
                             <div class="item-desc">
                                 <h3><%= productName %></h3>
                                 <p>Rp <%= String.format("%,.0f", price) %></p>
-                                <p class="size-info">Size: <%= size %></p>
                             </div>
                         </div>
                     <%

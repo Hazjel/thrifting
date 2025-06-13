@@ -64,7 +64,7 @@
                                         imageName = productImages.get(item.getId());
                                     }
                                     %>
-                                    <img src="<%= request.getContextPath() %>/assets/<%= imageName %>" alt="<%= item.getName() %>">
+                                    <img src="<%= request.getContextPath() %>/<%= imageName %>" alt="<%= item.getName() %>">
                                 </a>
                                 <div class="desc">
                                     <div class="item-info">
@@ -120,7 +120,7 @@
                                 imageName = hotItemsImages.get(item.getId());
                             }
                             %>
-                            <img src="<%= request.getContextPath() %>/assets/<%= imageName %>" alt="<%= item.getName() %>">
+                            <img src="<%= request.getContextPath() %>/<%= imageName %>" alt="<%= item.getName() %>">
                         </a>
                         <div class="desc">
                             <div class="item-info">

@@ -73,20 +73,28 @@ public class ProductControllers extends HttpServlet {
     /**
      * Selects the appropriate image for a product based on its name
      * @param product The product to find an image for
-     * @return The image filename to display
+     * @return The image filename to display with appropriate path
      */
     private String getProductImage(Product product) {
-        // Jika produk memiliki path gambar dari database, gunakan itu
+        // If product has a photo path from database, use it
         if (product.getPhoto() != null && !product.getPhoto().isEmpty()) {
-            System.out.println("Menggunakan photo dari database: " + product.getPhoto());
-            // Pastikan path relatif, tidak termasuk 'images/'
+            System.out.println("Using photo from database: " + product.getPhoto());
             String photoPath = product.getPhoto();
-            if (photoPath.startsWith("images/")) {
-                return photoPath.substring(7); // Hapus 'images/' dari awal path
+
+            // If the path already contains a directory structure, return it as is
+            if (photoPath.contains("/") || photoPath.contains("\\")) {
+                // Ensure the path starts with the correct folder
+                if (photoPath.startsWith("images/")) {
+                    return photoPath; // Return the complete path including "images/"
+                } else {
+                    return "images/" + photoPath; // Add images/ prefix if missing
+                }
+            } else {
+                // If it's just a filename with no path, assume it's in images folder
+                return "images/" + photoPath;
             }
-            return photoPath;
         }
-        return "clothes.png"; // Default image if no photo is available
+        return "images/clothes.png"; // Default image if no photo is available
     }
 
     /**

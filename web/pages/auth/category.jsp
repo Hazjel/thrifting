@@ -115,7 +115,6 @@
                             <div class="item-desc">
                                 <h3><%= productName %></h3>
                                 <p>Rp <%= String.format("%,.0f", price) %></p>
-                                <p class="size-info">Size: <%= size %></p>
                             </div>
                         </div>
                     <%
