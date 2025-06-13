@@ -118,4 +118,22 @@ public class JDBC {
             throw e;
         }
     }
+    public ResultSet getDataPrepared(String query, String... params) throws SQLException {
+        connect();
+        PreparedStatement pstmt = con.prepareStatement(query);
+        for (int i = 0; i < params.length; i++) {
+            pstmt.setString(i + 1, params[i]);
+        }
+        return pstmt.executeQuery();
+    }
+
+    public void runQueryPrepared(String query, String... params) throws SQLException {
+        connect();
+        PreparedStatement pstmt = con.prepareStatement(query);
+        for (int i = 0; i < params.length; i++) {
+            pstmt.setString(i + 1, params[i]);
+        }
+        pstmt.executeUpdate();
+        disconnect();
+    }
 }
