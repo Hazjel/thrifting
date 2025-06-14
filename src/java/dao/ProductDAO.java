@@ -19,35 +19,10 @@ public class ProductDAO {
         return getProductsPaginated(-1, -1); // -1 artinya ambil semua
     }
 
-    // GET AVAILABLE PRODUCTS
-    public List<Product> getAvailableProducts() {
-        List<Product> products = new ArrayList<>();
-        String query = "SELECT * FROM products WHERE status = 'available'";
-
-        try (ResultSet rs = db.getData(query)) {
-            while (rs != null && rs.next()) {
-                Product p = new Product();
-                p.setId(rs.getInt("id"));
-                p.setName(rs.getString("name"));
-                p.setPrice(rs.getDouble("price"));
-                p.setCategory(rs.getString("category"));
-                p.setDescription(rs.getString("description"));
-                p.setPhoto(rs.getString("photo"));
-                p.setStatus(rs.getString("status"));
-
-                products.add(p);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return products;
-    }
-
     // GET PRODUCTS with PAGINATION
     public List<Product> getProductsPaginated(int offset, int limit) {
         List<Product> products = new ArrayList<>();
-        String query = "SELECT * FROM products WHERE status = 'available'";
+        String query = "SELECT * FROM products";
 
         if (offset >= 0 && limit > 0) {
             query += " LIMIT " + offset + ", " + limit;
@@ -62,7 +37,6 @@ public class ProductDAO {
                 p.setCategory(rs.getString("category"));
                 p.setDescription(rs.getString("description"));
                 p.setPhoto(rs.getString("photo"));
-                p.setStatus(rs.getString("status"));
 
                 products.add(p);
             }
@@ -75,7 +49,7 @@ public class ProductDAO {
 
     // COUNT TOTAL PRODUCTS
     public int getTotalProductCount() {
-        String query = "SELECT COUNT(*) FROM products WHERE status = 'available'";
+        String query = "SELECT COUNT(*) FROM products";
         try (ResultSet rs = db.getData(query)) {
             if (rs != null && rs.next()) {
                 return rs.getInt(1);
@@ -90,16 +64,14 @@ public class ProductDAO {
         String query = "SELECT * FROM products WHERE id = " + id;
         try (ResultSet rs = db.getData(query)) {
             if (rs != null && rs.next()) {
-                Product product = new Product(
-                    rs.getInt("id"),
-                    rs.getString("name"),
-                    rs.getDouble("price"),
-                    rs.getString("category"),
-                    rs.getString("description"),
-                    rs.getString("photo")
+                return new Product(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getDouble("price"),
+                        rs.getString("category"),
+                        rs.getString("description"),
+                        rs.getString("photo")
                 );
-                product.setStatus(rs.getString("status"));
-                return product;
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -108,13 +80,12 @@ public class ProductDAO {
     }
 
     public boolean insertProduct(Product p) {
-        String query = "INSERT INTO products (name, price, category, description, photo, status) VALUES (" +
+        String query = "INSERT INTO products (name, price, category, description, photo) VALUES (" +
                 "'" + p.getName() + "', " +
                 p.getPrice() + ", " +
                 "'" + p.getCategory() + "', " +
                 "'" + p.getDescription() + "', " +
-                "'" + p.getPhoto() + "', " +
-                "'" + p.getStatus() + "'" +
+                "'" + p.getPhoto() + "'" +
                 ")";
         try {
             db.runQuery(query);
@@ -131,8 +102,7 @@ public class ProductDAO {
                 "price = " + p.getPrice() + ", " +
                 "category = '" + p.getCategory() + "', " +
                 "description = '" + p.getDescription() + "', " +
-                "photo = '" + p.getPhoto() + "', " +
-                "status = '" + p.getStatus() + "' " +
+                "photo = '" + p.getPhoto() + "' " +
                 "WHERE id = " + p.getId();
 
         try {
@@ -155,26 +125,10 @@ public class ProductDAO {
         }
     }
 
-    /**
-     * Set product status to 'sold'
-     * @param productId The ID of the product to mark as sold
-     * @return boolean indicating success or failure
-     */
-    public boolean markProductAsSold(int productId) {
-        String query = "UPDATE products SET status = 'sold' WHERE id = " + productId;
-        try {
-            db.runQuery(query);
-            return true;
-        } catch (Exception e) {
-            System.out.println("Mark As Sold Error: " + e.getMessage());
-            return false;
-        }
-    }
-
     // Get latest products for dashboard
     public List<Product> getLatestProducts(int count) {
         List<Product> products = new ArrayList<>();
-        String query = "SELECT * FROM products WHERE status = 'available' ORDER BY id DESC LIMIT " + count;
+        String query = "SELECT * FROM products ORDER BY id DESC LIMIT " + count;
 
         try (ResultSet rs = db.getData(query)) {
             while (rs != null && rs.next()) {
@@ -185,7 +139,6 @@ public class ProductDAO {
                 p.setCategory(rs.getString("category"));
                 p.setDescription(rs.getString("description"));
                 p.setPhoto(rs.getString("photo"));
-                p.setStatus(rs.getString("status"));
                 products.add(p);
             }
         } catch (SQLException e) {
@@ -199,4 +152,6 @@ public class ProductDAO {
     public int getTotalProducts() {
         return getTotalProductCount();
     }
+
 }
+
