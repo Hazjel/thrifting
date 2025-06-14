@@ -13,7 +13,7 @@ public class JDBC {
 
     private void connect() throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver"); // pakai 'cj' bukan yang lama
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + dbname + "?useSSL=false", username, password);
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3307/" + dbname + "?useSSL=false", username, password);
     }
 
     private void disconnect() {
@@ -117,7 +117,7 @@ public class JDBC {
             }
 
             // Coba koneksi dengan opsi yang lebih toleran
-            String url = "jdbc:mysql://localhost:3306/" + dbname +
+            String url = "jdbc:mysql://localhost:3307/" + dbname +
                     "?useSSL=false" +
                     "&allowPublicKeyRetrieval=true" +
                     "&useUnicode=true" +

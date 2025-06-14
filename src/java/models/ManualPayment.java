@@ -9,6 +9,8 @@ public class ManualPayment {
     private String proofImage;
     private String status;
     private String createdAt;
+    private String buyerName; // Added field
+    private String productName; // Added field
 
     // Getter & Setter
 
@@ -44,6 +46,15 @@ public class ManualPayment {
         this.price = price;
     }
 
+    // New method to handle double price
+    public void setPrice(double price) {
+        this.price = (int)price;
+    }
+
+    public double getPriceAsDouble() {
+        return (double)price;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -74,5 +85,21 @@ public class ManualPayment {
 
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public String getBuyerName() {
+        return buyerName;
+    }
+
+    public void setBuyerName(String buyerName) {
+        this.buyerName = buyerName;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 }

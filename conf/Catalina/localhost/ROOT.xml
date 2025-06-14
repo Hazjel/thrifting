@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context docBase="E:\PBO FIX\thrifting\web" path="/tubes_web">
+  <Resources cacheMaxSize="10240">
+    <PreResources base="E:/PBO FIX/thrifting/production/thrifting" className="org.apache.catalina.webresources.DirResourceSet" webAppMount="/WEB-INF/classes"/>
+    <PostResources base="E:/PBO FIX/thrifting/web/WEB-INF/lib/commons-io-2.19.0.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/commons-io-2.19.0.jar"/>
+    <PostResources base="E:/PBO FIX/thrifting/web/WEB-INF/lib/commons-fileupload2-core-2.0.0-M3.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/commons-fileupload2-core-2.0.0-M3.jar"/>
+    <PostResources base="E:/PBO FIX/thrifting/mysql-connector-j-9.3.0.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/mysql-connector-j-9.3.0.jar"/>
+    <PostResources base="C:/Users/aiman/Downloads/New folder (7)/commons-io-2.19.0/commons-io-2.19.0.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/commons-io-2.19.0.jar"/>
+    <PostResources base="C:/Users/aiman/Downloads/javax.servlet-api-4.0.1.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/javax.servlet-api-4.0.1.jar"/>
+    <PostResources base="C:/Users/aiman/Downloads/New folder (7)/commons-fileupload-1.6.0-bin/commons-fileupload-1.6.0.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/commons-fileupload-1.6.0.jar"/>
+  </Resources>
+</Context>

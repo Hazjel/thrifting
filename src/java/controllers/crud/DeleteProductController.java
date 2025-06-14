@@ -21,6 +21,7 @@ public class DeleteProductController extends HttpServlet {
             new ProductDAO().deleteProduct(id);
         }
 
-        response.sendRedirect("product-list");
+        // Redirect to dashboard with success notification
+        response.sendRedirect(request.getContextPath() + "/pages/admin/dashboard-admin.jsp?success=product_deleted");
     }
 }

@@ -151,16 +151,6 @@ public class PurchaseController extends HttpServlet {
 
             if (success) {
                 // Order created successfully
-
-                // Delete the product from database since it's sold
-                dao.ProductDAO productDao = new dao.ProductDAO();
-                boolean deleteSuccess = productDao.deleteProduct(productId);
-
-                if (!deleteSuccess) {
-                    System.out.println("Warning: Failed to delete product after purchase. Product ID: " + productId);
-                }
-
-                // Redirect to confirmation page
                 request.setAttribute("orderSuccess", true);
                 request.getRequestDispatcher("/pages/user/purchase-confirmation.jsp").forward(request, response);
             } else {

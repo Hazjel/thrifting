@@ -1,4 +1,4 @@
-QQ<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -36,7 +36,7 @@ QQ<!DOCTYPE html>
         <input type="text" id="description" name="description" placeholder="Deskripsi Produk" required>
 
         <div class="buttons">
-            <a href="${pageContext.request.contextPath}/product-list" class="cancel-btn">← Batal</a>
+            <a href="${pageContext.request.contextPath}/product-list" class="cancel-btn">Batal</a>
             <button type="submit" class="submit-btn">Tambahkan</button>
         </div>
     </form>

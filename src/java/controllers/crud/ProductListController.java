@@ -1,7 +1,9 @@
 package controllers.crud;
 
 import dao.ProductDAO;
+import dao.OrderDAO;
 import models.Product;
+import models.user.Order;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,7 +42,12 @@ public class ProductListController extends HttpServlet {
 
         List<Product> products = dao.getProductsPaginated((page - 1) * recordsPerPage, recordsPerPage);
 
+        // Get recent orders
+        OrderDAO orderDAO = new OrderDAO();
+        List<Order> recentOrders = orderDAO.getRecentOrders(5); // Get 5 most recent orders
+
         request.setAttribute("products", products);
+        request.setAttribute("recentOrders", recentOrders);
         request.setAttribute("currentPage", page);
         request.setAttribute("totalPages", totalPages);
 

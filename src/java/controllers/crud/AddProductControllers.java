@@ -75,8 +75,8 @@ public class AddProductControllers extends HttpServlet {
             boolean success = dao.insertProduct(product);
 
             if (success) {
-                // Redirect ke halaman sukses dengan path yang benar
-                response.sendRedirect(request.getContextPath() + "/pages/admin/success.jsp");
+                // Redirect to dashboard with success notification
+                response.sendRedirect(request.getContextPath() + "/pages/admin/dashboard-admin.jsp?success=product_added");
             } else {
                 response.sendRedirect(request.getContextPath() + "/pages/admin/add.jsp?error=database_error");
             }

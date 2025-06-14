@@ -7,6 +7,7 @@ public class Product {
     private String category;
     private String description;
     private String photo; // Ini bisa jadi path, atau base64 string kalau mau embed
+    private String status; // Added status field
 
     // Constructor
     public Product() {
@@ -19,6 +20,7 @@ public class Product {
         this.category = category;
         this.description = description;
         this.photo = photo;
+        this.status = "available"; // Default status
     }
 
     // Getter dan Setter
@@ -68,5 +70,14 @@ public class Product {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    // Added getter and setter for status
+    public String getStatus() {
+        return status != null ? status : "available";
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

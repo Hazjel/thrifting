@@ -37,7 +37,8 @@ public class EditProductController extends HttpServlet {
         try {
             Product updatedProduct = processFormData(request);
             new ProductDAO().updateProduct(updatedProduct);
-            response.sendRedirect("product-list");
+            // Redirect to dashboard with success notification
+            response.sendRedirect(request.getContextPath() + "/pages/admin/dashboard-admin.jsp?success=product_updated");
         } catch (Exception e) {
             e.printStackTrace();
             showError(request, response, "Error: " + e.getMessage());

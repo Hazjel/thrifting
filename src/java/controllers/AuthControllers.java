@@ -89,7 +89,7 @@ public class AuthControllers extends HttpServlet {
                     // Admin/seller redirects to admin dashboard
                     response.sendRedirect(request.getContextPath() + "/pages/admin/dashboard-admin.jsp");
                 } else {
-                    // Regular users redirect to home page
+                    // Regular users redirect to homepage first
                     response.sendRedirect(request.getContextPath() + "/");
                 }
             }
@@ -126,8 +126,23 @@ public class AuthControllers extends HttpServlet {
                 session.setAttribute("username", user.getUsername());
                 session.setAttribute("role", user.getRoleType());
                 
-                // Redirect to root URL pattern which is handled by ProductControllers instead of directly to index.jsp
-                response.sendRedirect(request.getContextPath() + "/");
+                // Make registration follow the same path as login
+                String redirectUrl = (String) session.getAttribute("redirectAfterLogin");
+                if (redirectUrl != null) {
+                    // Clear the redirect URL from session
+                    session.removeAttribute("redirectAfterLogin");
+                    // Redirect to the stored URL
+                    response.sendRedirect(redirectUrl);
+                } else {
+                    // Check user role and redirect accordingly - same as login
+                    if ("seller".equals(user.getRoleType()) || "admin".equals(user.getRoleType())) {
+                        // Admin/seller redirects to admin dashboard
+                        response.sendRedirect(request.getContextPath() + "/pages/admin/dashboard-admin.jsp");
+                    } else {
+                        // Regular users redirect to homepage like in login flow
+                        response.sendRedirect(request.getContextPath() + "/");
+                    }
+                }
             } else {
                 request.setAttribute("error", "Registrasi berhasil, tapi login gagal. Silakan login manual.");
                 request.getRequestDispatcher("/pages/auth/login.jsp").forward(request, response);
@@ -147,10 +162,18 @@ public class AuthControllers extends HttpServlet {
         }
 
         User user = (User) session.getAttribute("user");
-        if ("seller".equals(user.getRoleType())) {
-            request.getRequestDispatcher("/pages/admin/dashboard-admin.jsp").forward(request, response);
+        // Ensure session has all the required attributes
+        if (session.getAttribute("username") == null) {
+            session.setAttribute("username", user.getUsername());
+        }
+        if (session.getAttribute("role") == null) {
+            session.setAttribute("role", user.getRoleType());
+        }
+
+        if ("seller".equals(user.getRoleType()) || "admin".equals(user.getRoleType())) {
+            response.sendRedirect(request.getContextPath() + "/pages/admin/dashboard-admin.jsp");
         } else {
-            request.getRequestDispatcher("/pages/user/dashboard.jsp").forward(request, response);
+            response.sendRedirect(request.getContextPath() + "/pages/user/dashboard.jsp");
         }
     }
 

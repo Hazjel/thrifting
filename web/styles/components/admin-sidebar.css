@@ -4,24 +4,34 @@
 
 .sidebar {
     width: 277px;
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
     flex-shrink: 0;
     border-right: 1px solid #000;
     background: #FFF;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+    z-index: 100;
+    padding-bottom: 30px;
+    overflow-y: auto;
 
     & .profile {
         display: flex;
-
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 24px;
+        padding: 30px 0;
 
-        & svg {
-            margin-top: 46px;
+        & svg, & img {
+            margin-top: 16px;
             width: 98px;
             height: 98px;
             aspect-ratio: 1/1;
+            border-radius: 50%;
+            object-fit: cover;
         }
 
         & p {
